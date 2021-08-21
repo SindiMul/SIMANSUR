@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\SuratMasukRequest;
-use App\SuratMasuk;
+use App\Http\Requests\Admin\SuratKeluarRequest;
+use App\SuratKeluar;
 use Illuminate\Http\Request;
 
 
-class SuratMasukController extends Controller
+class SuratKeluarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,12 +17,13 @@ class SuratMasukController extends Controller
      */
     public function index()
     {
-        $items = SuratMasuk::all();
+        $items = SuratKeluar::all();
 
-        return view('pages.admin.surat-masuk.index', [
+        return view('pages.admin.surat-keluar.index', [
             'items' => $items
         ]);
     }
+
 
 
     /**
@@ -32,7 +33,7 @@ class SuratMasukController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.surat-masuk.create');
+        return view('pages.admin.surat-keluar.create');
     }
 
     /**
@@ -41,15 +42,15 @@ class SuratMasukController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SuratMasukRequest $request)
+    public function store(SuratKeluarRequest $request)
     {
         $data = $request->all();
         $data['file'] = $request->file('file')->store(
             'assets/gallery',
             'public'
         );
-        SuratMasuk::create($data);
-        return redirect()->route('surat-masuk.index');
+        SuratKeluar::create($data);
+        return redirect()->route('surat-keluar.index');
     }
 
     /**
@@ -60,6 +61,7 @@ class SuratMasukController extends Controller
      */
     public function show($id)
     {
+        //
     }
 
     /**
@@ -68,15 +70,14 @@ class SuratMasukController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
-
     public function edit($id)
     {
-        $item = SuratMasuk::findOrFail($id);
-        return view('pages.admin.surat-masuk.edit', [
+        $item = SuratKeluar::findOrFail($id);
+        return view('pages.admin.surat-keluar.edit', [
             'item' => $item
         ]);
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -84,14 +85,14 @@ class SuratMasukController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(SuratMasukRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $data = $request->all();
-        $item = SuratMasuk::findOrFail($id);
+        $item = SuratKeluar::findOrFail($id);
 
         $item->update($data);
 
-        return redirect()->route('surat-masuk.index');
+        return redirect()->route('surat-keluar.index');
     }
 
     /**
@@ -102,17 +103,9 @@ class SuratMasukController extends Controller
      */
     public function destroy($id)
     {
-        $item = SuratMasuk::findorFail($id);
+        $item = SuratKeluar::findorFail($id);
         $item->delete();
 
-        return redirect()->route('surat-masuk.index');
+        return redirect()->route('surat-keluar.index');
     }
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
 }

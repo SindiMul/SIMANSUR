@@ -28,7 +28,7 @@
         @endif
             <div class="card-body">
               <div class="table-responsive">
-              <form action="{{ route('surat-masuk.store') }}" method="POST" enctype="multipart/form-data">
+              <form action="{{ route('surat-keluar.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                   <div class="col-sm-6">
@@ -44,38 +44,29 @@
 
                 <div class="row mt-2">
                   <div class="col-sm-6">
-                  <label><b> Asal Surat</b></label>
-                    <input type="text" class="form-control"  name="asal_surat" placeholder="Asal Surat" value=" {{ old('asal_surat') }}">
+                  <label><b> Tujuan Surat</b></label>
+                    <input type="text" class="form-control"  name="tujuan_surat" placeholder="Asal Surat" value=" {{ old('tujuan_surat') }}">
                   </div>
-
-                  <div class="col-sm-6">
-                  <label><b> Tanggal Diterima</b></label>
-                    <input type="date" class="form-control"  name="tanggal_diterima" value=" {{ old('tanggal_diterima') }}">
-                  </div>
+                  <div class="col-sm-6 ">
+                    <label><b>Perihal</b> </label>
+                      <input type="text" class="form-control"  name="perihal" placeholder="Perihal" value=" {{ old('perihal') }}">
+                    </div>
                 </div>
 
                 <div class="row mt-2 ">
-                  <div class="col-sm-6 ">
-                  <label><b>Perihal</b> </label>
-                    <input type="text" class="form-control"  name="perihal" placeholder="Perihal" value=" {{ old('perihal') }}">
-                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                    <label><b> Keterangan</b></label>
+                    <textarea class="form-control"  name="keterangan" cols="40" rows="5" placeholder="keterangan" value=" {{ old('keterangan') }}"></textarea>
+                    </div>
+                    </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                     <label> <b>Pilih file yang ingin diupload</b> </label>
                     <input type="file" class="form-control-file" name="file">
                   </div>
               </div>
-                </div>
-                
-              
-                <div class="row mt-2">
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                    <label><b> Keterangan</b></label>
-                    <textarea class="form-control"  name="keterangan" cols="40" rows="5" placeholder="keterangan" value=" {{ old('keterangan') }}"></textarea>
-                    </div>
-                    </div>  
-                </div>
+            </div>
                 <button type="Submit" class="btn btn-primary">Simpan</button>
               </form>
             </div>

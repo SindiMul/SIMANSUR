@@ -17,19 +17,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('admin')
-->namespace('Admin')
-->group(function(){
-    Route::get('/', 'DashboardController@index')
-    ->name('dashboard');
+    ->namespace('Admin')
+    ->group(function () {
+        Route::get('/', 'DashboardController@index')
+            ->name('dashboard');
 
-    Route::resource('surat-masuk','SuratMasukController');
-});
+        Route::resource('surat-masuk', 'SuratMasukController');
+
+        Route::resource('surat-keluar', 'SuratKeluarController');
+
+        Route::resource('disposisi', 'DisposisiController');
+    });

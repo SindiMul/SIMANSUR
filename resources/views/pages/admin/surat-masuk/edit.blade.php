@@ -15,7 +15,7 @@
           <div class="container">
           <div class="card mt-3">
             <div class="card-header">
-             <h2> TAMBAH DATA SURAT MASUK</h2> 
+             <h2> EDIT DATA SURAT MASUK</h2> 
             </div>
             @if ($errors->any())
             <div class="alert alert-danger">
@@ -28,54 +28,58 @@
         @endif
             <div class="card-body">
               <div class="table-responsive">
-              <form action="{{ route('surat-masuk.store') }}" method="POST" enctype="multipart/form-data">
+              <form action="{{ route('surat-masuk.update',  $item->id) }}" method="POST" enctype="multipart/form-data">
+                @method('PUT')
                 @csrf
                 <div class="row">
                   <div class="col-sm-6">
                   <label for="nomor_surat"> <b> Nomor Surat</b> </label>
-                  <input type="text" class="form-control"  name="nomor_surat" placeholder="Nomor Surat" value=" {{ old('nomor_surat') }}">
+                  <input type="text" class="form-control"  name="nomor_surat" placeholder="Nomor Surat" value=" {{ $item->nomor_surat}}">
                   </div>
 
                   <div class="col-sm-6">
                   <label> <b>Tanggal Surat</b> </label>
-                    <input type="date" class="form-control"  name="tanggal_surat" value=" {{ old('tanggal_surat') }}">
+                    <input type="date" class="form-control"  name="tanggal_surat" value=" {{ $item->tanggal_surat }}">
                   </div>
                 </div>
-
                 <div class="row mt-2">
                   <div class="col-sm-6">
                   <label><b> Asal Surat</b></label>
-                    <input type="text" class="form-control"  name="asal_surat" placeholder="Asal Surat" value=" {{ old('asal_surat') }}">
+                    <input type="text" class="form-control"  name="asal_surat" placeholder="Asal Surat" value=" {{ $item->asal_surat }}">
                   </div>
-
                   <div class="col-sm-6">
-                  <label><b> Tanggal Diterima</b></label>
-                    <input type="date" class="form-control"  name="tanggal_diterima" value=" {{ old('tanggal_diterima') }}">
-                  </div>
+                    <label> <b>Tanggal Diterima</b> </label>
+                      <input type="date" class="form-control"  name="tanggal_diterima" value=" {{ $item->tanggal_diterima }}">
+                    </div>
+                 
+                  
                 </div>
 
                 <div class="row mt-2 ">
-                  <div class="col-sm-6 ">
-                  <label><b>Perihal</b> </label>
-                    <input type="text" class="form-control"  name="perihal" placeholder="Perihal" value=" {{ old('perihal') }}">
-                  </div>
                   <div class="col-sm-6">
-                    <div class="form-group">
-                    <label> <b>Pilih file yang ingin diupload</b> </label>
-                    <input type="file" class="form-control-file" name="file">
-                  </div>
-              </div>
+                    <div class="col-sm-6 ">
+                      <label><b>Perihal</b> </label>
+                        <input type="text" class="form-control"  name="perihal" placeholder="Perihal" value=" {{ $item->perihal }}">
+                    </div>
                 </div>
-                
               
+                <div class="col-sm-6">
+                  <div class="form-group">
+                  <label> <b>Pilih file yang ingin diupload</b> </label>
+                  <input type="file" class="form-control-file" name="file">
+                </div>
+                </div>
+              </div>  
+
                 <div class="row mt-2">
                   <div class="col-sm-6">
                     <div class="form-group">
                     <label><b> Keterangan</b></label>
-                    <textarea class="form-control"  name="keterangan" cols="40" rows="5" placeholder="keterangan" value=" {{ old('keterangan') }}"></textarea>
+                    <textarea class="form-control"  name="keterangan" cols="40" rows="5" placeholder="keterangan" value=" {{$item->keterangan}} "></textarea>
                     </div>
                     </div>  
                 </div>
+                            
                 <button type="Submit" class="btn btn-primary">Simpan</button>
               </form>
             </div>

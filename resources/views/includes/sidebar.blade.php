@@ -4,7 +4,7 @@
       <!-- Brand -->
       <div class="sidenav-header  align-items-center">
         <a class="navbar-brand" href="javascript:void(0)">
-          <img src="{{ url('backend/assets/img/brand/blue.png') }}" class="navbar-brand-img" alt="...">
+          <img src="{{ url('backend/assets/img/brand/sistem.png') }}" class="navbar-brand-img" alt="...">
         </a>
       </div>
       <div class="navbar-inner">
@@ -25,15 +25,15 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="examples/map.html">
+          <a class="nav-link" href="{{route ('surat-keluar.index')}}">
             <i class="fas fa-envelope-open-text text-primary"></i>
             <span class="nav-link-text">Surat Keluar</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="examples/profile.html">
+          <a class="nav-link" href="{{route ('disposisi.index')}}">
             <i class="ni ni-single-02 text-yellow"></i>
-            <span class="nav-link-text">Surat Keputusan</span>
+            <span class="nav-link-text">Disposisi</span>
           </a>
         </li>
         <li class="nav-item">

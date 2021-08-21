@@ -30,14 +30,14 @@
               <h6 class="h2 text-white d-inline-block mb-0">My Files</h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-envelope text-primary"></i></a></li>
-                  <li class="breadcrumb-item"><a href="#">Surat Masuk</a></li>
+                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-envelope-open text-primary"></i></a></li>
+                  <li class="breadcrumb-item"><a href="#">Surat Keluar</a></li>
                   
                 </ol>
               </nav>
             </div>
             <div class="col-lg-5 col-5 text-right">
-              <a href="{{route ('surat-masuk.create')}}" class="btn btn-sm btn-neutral">Tambah Data
+              <a href="{{route ('surat-keluar.create')}}" class="btn btn-sm btn-neutral">Tambah Data
                  </a>
             </div>
           </div>
@@ -48,7 +48,7 @@
                 <div class="card">
                   <!-- Card header -->
                   <div class="card-header border-0">
-                    <h3 class="mb-0">Surat Masuk</h3>
+                    <h3 class="mb-0">Surat Keluar</h3>
                   </div>
       
                   <!-- My Files -->
@@ -57,8 +57,7 @@
                       <thead class="thead-light">
                         <tr>
                           <th scope="col" class="sort" data-sort="name">Nomor Surat</th>
-                          <th scope="col" class="sort" data-sort="name">Asal Surat</th>
-                          <th scope="col" class="sort" data-sort="date">Tgl diterima</th>
+                          <th scope="col" class="sort" data-sort="name">Tujuan Surat</th>
                           <th scope="col" class="sort" data-sort="date">Tgl surat</th>
                           <th scope="col" class="sort" data-sort="name">Perihal</th>
                           <th scope="col" class="sort" data-sort="time">File</th>
@@ -70,19 +69,15 @@
                         @forelse ($items as $item)
                         <tr>
                           <th>{{ $item-> nomor_surat }}</th>
-                          <th>{{ $item-> asal_surat}}</th>
-                          <th>{{ $item-> tanggal_diterima }}</th>
+                          <th>{{ $item-> tujuan_surat}}</th>
                           <th>{{ $item-> tanggal_surat}}</th>
                           <th>{{ $item-> perihal }}</th>
                           <th><img src="{{ Storage::url($item->file) }}" alt="" style="width: 200px" class="img-thumbnail"></th>
                           <th>
-                              <a href="{{ route('surat-masuk.edit', $item->id) }}" class="btn btn-info">
+                              <a href="{{ route('surat-keluar.edit', $item->id) }}" class="btn btn-info">
                                   <i class="fa fa-pencil-alt"></i>
                               </a>
-                              <a href="{{ route('disposisi.create', $item->id) }}" class="btn btn-success">
-                                <i class="fa fa-sticky-note"></i>
-                            </a>
-                              <form action="{{ route('surat-masuk.destroy', $item->id) }}" method="post" class="d-inline">
+                              <form action="{{ route('surat-keluar.destroy', $item->id) }}" method="post" class="d-inline">
                                   @csrf
                                   @method('delete')
                                   <button class="btn btn-danger">
