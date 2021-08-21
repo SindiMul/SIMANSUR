@@ -58,6 +58,7 @@
                         <tr>
                           <th scope="col" class="sort" data-sort="name">Nomor Surat</th>
                           <th scope="col" class="sort" data-sort="name">Asal Surat</th>
+                          <th scope="col" class="sort" data-sort="text">Tujuan Surat</th>
                           <th scope="col" class="sort" data-sort="date">Tgl diterima</th>
                           <th scope="col" class="sort" data-sort="date">Tgl surat</th>
                           <th scope="col" class="sort" data-sort="name">Perihal</th>
@@ -71,6 +72,7 @@
                         <tr>
                           <th>{{ $item-> nomor_surat }}</th>
                           <th>{{ $item-> asal_surat}}</th>
+                          <th>{{ $item-> tujuan_surat}}</th>
                           <th>{{ $item-> tanggal_diterima }}</th>
                           <th>{{ $item-> tanggal_surat}}</th>
                           <th>{{ $item-> perihal }}</th>

@@ -31,10 +31,7 @@ class DisposisiController extends Controller
      */
     public function create()
     {
-        return view(
-            'pages.admin.disposisi.create'
-            // 'item' => $item
-        );
+        return view('pages.admin.disposisi.create');
     }
 
     /**
@@ -45,7 +42,10 @@ class DisposisiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $data = $request->all();
+        Disposisi::create($data);
+        return redirect()->route('disposisi.index');
     }
 
     /**

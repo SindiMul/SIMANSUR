@@ -4,7 +4,11 @@
       <!-- Brand -->
       <div class="sidenav-header  align-items-center">
         <a class="navbar-brand" href="javascript:void(0)">
-          <img src="{{ url('backend/assets/img/brand/sistem.png') }}" class="navbar-brand-img" alt="...">
+          <img src="{{ url('backend/assets/img/brand/sistem.png') }}" class="navbar-brand-img" alt="..." style="
+            width: 200px;
+            height: 325px;
+            object-fit: cover;
+          ">
         </a>
       </div>
       <div class="navbar-inner">

@@ -9,6 +9,8 @@ class SuratKeluar extends Model
 {
      use softDeletes;
 
+     protected $table = 'surat_keluars';
+
      protected $fillable = [
           'nomor_surat', 'perihal', 'tujuan_surat',  'tanggal_surat', 'keterangan', 'file'
      ];

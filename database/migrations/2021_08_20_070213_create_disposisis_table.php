@@ -15,7 +15,7 @@ class CreateDisposisisTable extends Migration
     {
         Schema::create('disposisis', function (Blueprint $table) {
             $table->id();
-            $table->integer('suratmasuk_id');
+            $table->foreignId('surat_masuk_id')->constrained()->references('id')->on('surat_masuks')->onUpdate('cascade')->onDelete('cascade');
             $table->date('tanggal_penyelesaian');
             $table->string('tembusan');
             $table->softDeletes();

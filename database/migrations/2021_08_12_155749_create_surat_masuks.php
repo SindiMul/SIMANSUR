@@ -14,14 +14,15 @@ class CreateSuratMasuks extends Migration
     public function up()
     {
         Schema::create('surat_masuks', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->string('nomor_surat');
             $table->string('perihal');
             $table->string('asal_surat');
+            $table->string('tujuan_surat');
             $table->date('tanggal_diterima');
             $table->date('tanggal_surat');
-            $table->string('keterangan');
-            $table->text('file');
+            $table->string('keterangan')->nullable();
+            $table->string('file');
             $table->softDeletes();
             $table->timestamps();
         });

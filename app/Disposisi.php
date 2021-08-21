@@ -8,14 +8,17 @@ use Illuminate\Database\Eloquent\softDeletes;
 class Disposisi extends Model
 {
     use SoftDeletes;
+
+    protected $table = 'disposisis';
+
     protected $fillable = [
-        'suratmasuk_id', 'tanggal_penyelesaian', 'tembusan'
+        'tanggal_penyelesaian', 'tembusan'
     ];
 
     protected $hidden = [];
 
-    public function SuratMasuks()
+    public function SuratMasuk()
     {
-        return $this->belongsTo(SuratMasuk::class, 'suratmasuk_id', 'id');
+        return $this->belongsTo(SuratMasuk::class, 'surat_masuk_id', 'id');
     }
 }
