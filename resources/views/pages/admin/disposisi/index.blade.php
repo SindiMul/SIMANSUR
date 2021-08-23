@@ -70,7 +70,7 @@
                       <tbody>
                         @forelse ($disposisi as $item)
                         <tr>
-                          <th>{{ $item->surat_masuk->nomor_surat}}</th>
+                          <th>{{ $item->surat_masuk->nomor_surat }}</th>
                           <th>{{ $item->surat_masuk->tujuan_surat }}</th>
                           <th>{{ $item->surat_masuk->tanggal_surat}}</th>
                           <th>{{ $item->surat_masuk->perihal }}</th>
