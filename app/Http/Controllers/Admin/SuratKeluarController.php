@@ -17,10 +17,10 @@ class SuratKeluarController extends Controller
      */
     public function index()
     {
-        $items = SuratKeluar::all();
+        $surat_keluar = SuratKeluar::with('disposisi')->get();
 
         return view('pages.admin.surat-keluar.index', [
-            'items' => $items
+            'surat_keluar' => $surat_keluar
         ]);
     }
 

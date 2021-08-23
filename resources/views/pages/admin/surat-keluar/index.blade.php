@@ -66,7 +66,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @forelse ($items as $item)
+                        @forelse ($surat_keluar as $item)
                         <tr>
                           <th>{{ $item-> nomor_surat }}</th>
                           <th>{{ $item-> tujuan_surat}}</th>

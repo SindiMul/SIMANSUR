@@ -16,10 +16,10 @@ class DisposisiController extends Controller
      */
     public function index()
     {
-        $items = Disposisi::all();
+        $disposisi = Disposisi::all();
 
         return view('pages.admin.disposisi.index', [
-            'items' => $items
+            'disposisi' => $disposisi
         ]);
     }
 
@@ -40,12 +40,16 @@ class DisposisiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        
-        $data = $request->all();
-        Disposisi::create($data);
-        return redirect()->route('disposisi.index');
+
+        // $data = $request->all();
+        // Disposisi::create($data);
+        // return redirect()->route('disposisi.index');
+        // $disposisi = Disposisi::with('surat_masuk');
+        // $data = $request->all();
+        // $surat_disposisi = SuratMasuk::find($id);
+        // $disposisi = $surat_disposisi->disposisi()->create($data);
     }
 
     /**
