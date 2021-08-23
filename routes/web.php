@@ -1,5 +1,7 @@
 <?php
 
+use App\Disposisi;
+use App\Http\Controllers\Admin\DisposisiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,9 +31,12 @@ Route::prefix('admin')
         Route::get('/', 'DashboardController@index')
             ->name('dashboard');
 
+
         Route::resource('surat-masuk', 'SuratMasukController');
 
         Route::resource('surat-keluar', 'SuratKeluarController');
 
         Route::resource('disposisi', 'DisposisiController');
+
+        Route::post('disposisi/create/{surat_masuk_id}', 'DisposisiController@store');
     });

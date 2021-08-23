@@ -17,7 +17,7 @@ class SuratMasuk extends Model
 
      protected $hidden = [];
 
-     public function Disposisi()
+     public function disposisi()
      {
           return $this->hasOne(Disposisi::class, 'surat_masuk_id');
      }

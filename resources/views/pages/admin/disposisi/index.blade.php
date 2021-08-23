@@ -60,18 +60,22 @@
                           <th scope="col" class="sort" data-sort="name">Tujuan Surat</th>
                           <th scope="col" class="sort" data-sort="date">Tgl surat</th>
                           <th scope="col" class="sort" data-sort="name">Perihal</th>
+                          <th scope="col" class="sort" data-sort="name">Tanggal Penyelesaian</th>
+                          <th scope="col" class="sort" data-sort="name">Tembusan</th>
                           <th scope="col" class="sort" data-sort="time">File</th>
                           <th scope="col" class="sort" data-sort="name">Action</th>
                           <th scope="col"></th>
                         </tr>
                       </thead>
                       <tbody>
-                        @forelse ($items as $item)
+                        @forelse ($disposisi as $item)
                         <tr>
-                          <th>{{ $item-> nomor_surat }}</th>
-                          <th>{{ $item-> tujuan_surat}}</th>
-                          <th>{{ $item-> tanggal_surat}}</th>
-                          <th>{{ $item-> perihal }}</th>
+                          <th>{{ $item->surat_masuk->nomor_surat }}</th>
+                          <th>{{ $item->surat_masuk->tujuan_surat }}</th>
+                          <th>{{ $item->surat_masuk->tanggal_surat}}</th>
+                          <th>{{ $item->surat_masuk->perihal }}</th>
+                          <th>{{ $item->tanggal_penyelesaian }}</th>
+                          <th>{{ $item->tembusan }}</th>
                           <th><img src="{{ Storage::url($item->file) }}" alt="" style="width: 200px" class="img-thumbnail"></th>
                           <th>
                               <a href="{{ route('surat-keluar.edit', $item->id) }}" class="btn btn-info">
