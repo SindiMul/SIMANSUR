@@ -50,7 +50,8 @@ class DisposisiController extends Controller
             $disp['suratmasuk_id'] = $data->id;
 
             Disposisi::create($disp);
-            return redirect()->route('disposisi.index', compact('disp', 'smasuk'));
+
+            return redirect()->route('disposisi.index', [$data->id]);
         
     }
 
