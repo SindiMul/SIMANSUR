@@ -17,10 +17,10 @@ class SuratMasukController extends Controller
      */
     public function index()
     {
-        $surat_masuk = SuratMasuk::all();
+        $items = SuratMasuk::all();
 
         return view('pages.admin.surat-masuk.index', [
-            'surat_masuk' => $surat_masuk
+            'items' => $items
         ]);
     }
 

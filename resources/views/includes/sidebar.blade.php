@@ -34,11 +34,7 @@
             <span class="nav-link-text">Surat Keluar</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{route ('disposisi.index')}}">
-            <i class="ni ni-single-02 text-yellow"></i>
-            <span class="nav-link-text">Disposisi</span>
-          </a>
+        
         </li>
         <li class="nav-item">
           <a class="nav-link" href="examples/tables.html">

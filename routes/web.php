@@ -1,7 +1,5 @@
 <?php
 
-use App\Disposisi;
-use App\Http\Controllers\Admin\DisposisiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,19 +22,16 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/disposisi/{data}', 'DisposisiController@index')->name('disposisi.index');
+Route::get('/disposisi/{data}/create', 'DisposisiController@create')->name('disposisi-create');
+Route::post('/disposisi/{data}', 'DisposisiController@store')->name('disposisi.store');
+Route::get('/disposisi/{suratmasuk}/{id}/download', 'DisposisiController@download')->name('disposisi.download');
 Route::prefix('admin')
     ->namespace('Admin')
     ->group(function () {
         Route::get('/', 'DashboardController@index')
             ->name('dashboard');
 
-
         Route::resource('surat-masuk', 'SuratMasukController');
-
         Route::resource('surat-keluar', 'SuratKeluarController');
-
-        Route::resource('disposisi', 'DisposisiController');
-
-        Route::post('disposisi/create/{surat_masuk_id}', 'DisposisiController@store');
     });

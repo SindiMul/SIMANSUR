@@ -28,7 +28,7 @@
         @endif
             <div class="card-body">
               <div class="table-responsive">
-              <form action="{{ route('disposisi.store') }}" method="POST" enctype="multipart/form-data">
+              <form action="{{ route('disposisi.store', $smasuk) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
 

@@ -31,15 +31,16 @@
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-envelope-open text-primary"></i></a></li>
+                  <li class="breadcrumb-item"><a href="{{route ('surat-masuk.index')}}">Surat Masuk</a></li>
                   <li class="breadcrumb-item"><a href="#">Disposisi</a></li>
                   
                 </ol>
               </nav>
             </div>
-            {{-- <div class="col-lg-5 col-5 text-right">
-              <a href="{{route ('surat-keluar.create')}}" class="btn btn-sm btn-neutral">Tambah Data
+            <div class="col-lg-5 col-5 text-right">
+              <a href="{{route ('disposisi-create', $smasuk)}}" class="btn btn-sm btn-neutral">Tambah Data
                  </a>
-            </div> --}}
+            </div>
           </div>
           <!-- End Breadcrumb -->
           <div class="container-fluid mt--6">
@@ -60,42 +61,30 @@
                           <th scope="col" class="sort" data-sort="name">Tujuan Surat</th>
                           <th scope="col" class="sort" data-sort="date">Tgl surat</th>
                           <th scope="col" class="sort" data-sort="name">Perihal</th>
-                          <th scope="col" class="sort" data-sort="name">Tanggal Penyelesaian</th>
-                          <th scope="col" class="sort" data-sort="name">Tembusan</th>
                           <th scope="col" class="sort" data-sort="time">File</th>
-                          <th scope="col" class="sort" data-sort="name">Action</th>
+                          <th scope="col" class="sort" data-sort="name">tembusan</th>
                           <th scope="col"></th>
                         </tr>
                       </thead>
                       <tbody>
-                        @forelse ($disposisi as $item)
+                        @forelse ($disp as $items)
                         <tr>
-                          <th>{{ $item->surat_masuk->nomor_surat }}</th>
-                          <th>{{ $item->surat_masuk->tujuan_surat }}</th>
-                          <th>{{ $item->surat_masuk->tanggal_surat}}</th>
-                          <th>{{ $item->surat_masuk->perihal }}</th>
-                          <th>{{ $item->tanggal_penyelesaian }}</th>
-                          <th>{{ $item->tembusan }}</th>
-                          <th><img src="{{ Storage::url($item->file) }}" alt="" style="width: 200px" class="img-thumbnail"></th>
-                          <th>
-                              <a href="{{ route('surat-keluar.edit', $item->id) }}" class="btn btn-info">
-                                  <i class="fa fa-pencil-alt"></i>
-                              </a>
-                              <form action="{{ route('surat-keluar.destroy', $item->id) }}" method="post" class="d-inline">
-                                  @csrf
-                                  @method('delete')
-                                  <button class="btn btn-danger">
-                                      <i class="fa fa-trash"></i>
-                                  </button>
-                              </form>
-                          </th>
+                          <th>{{ $smasuk-> nomor_surat }}</th>
+                          <th>{{ $smasuk-> tujuan_surat}}</th>
+                          <th>{{ $smasuk-> tanggal_surat}}</th>
+                          <th>{{ $smasuk-> perihal }}</th>
+                          <th>{{ $smasuk-> file }}</th>
+                          <th>{{ $items-> tembusan }}</th>
+                          <th><a class="btn btn-primary btn-sm my-1 mr-sm-1"
+                                        href="{{ route('disposisi.download', [$smasuk, $items->id]) }}"
+                                        target="_blank" role="button"><i class="fas fa-print"></i> Cetak</a></th>
+                         
                         </tr>
               @empty
                   <td colspan="7" class="text-center">
                       Data Kosong
                   </td>
               @endforelse
-                        
                         </tbody>
                       
                     </table>

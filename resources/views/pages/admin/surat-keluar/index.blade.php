@@ -74,6 +74,8 @@
                           <th>{{ $item-> perihal }}</th>
                           <th><img src="{{ Storage::url($item->file) }}" alt="" style="width: 200px" class="img-thumbnail"></th>
                           <th>
+
+                            
                               <a href="{{ route('surat-keluar.edit', $item->id) }}" class="btn btn-info">
                                   <i class="fa fa-pencil-alt"></i>
                               </a>

@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Disposisi;
 use App\SuratMasuk;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\DisposisiRequest;
 use Illuminate\Http\Request;
+use PDF;
 
 class DisposisiController extends Controller
 {
@@ -14,12 +17,11 @@ class DisposisiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(SuratMasuk $data)
     {
-        $disposisi = Disposisi::all();
-        return view('pages.admin.disposisi.index', [
-            'disposisi' => $disposisi,
-        ]);
+        $smasuk = $data->findorfail($data->id);
+        $disp = DB::select('select * from disposisis where suratmasuk_id = ?', [$data->id]);
+        return view('pages.admin.disposisi.index', compact('smasuk', 'disp'));
     }
 
 
@@ -28,9 +30,10 @@ class DisposisiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(SuratMasuk $data)
     {
-        return view('pages.admin.disposisi.create');
+        $smasuk = $data->findorfail($data->id);
+        return view('pages.admin.disposisi.create', compact('smasuk'));
     }
 
     /**
@@ -39,27 +42,16 @@ class DisposisiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $surat_masuk_id)
-    {
+    public function store(DisposisiRequest $request, SuratMasuk $data)
+    { 
+            $smasuk = $data->findorfail($data->id);
+            $disp = $request->all();
 
-        $item = SuratMasuk::find($surat_masuk_id);
+            $disp['suratmasuk_id'] = $data->id;
 
-        $save = new Disposisi();
-        $save->tanggal_penyelesaian = $request->tanggal_penyelesaian;
-        $save->tembusan = $request->tembusan;
-        // $disposisi->approved = true;
-        $save->surat_masuk()->associate($item);
-
-        $save->save();
-
-        // Session::flash('success', 'Comment was added');
-
-        // $data = $request->all();
-        // $item = SuratMasuk::findOrFail($surat_masuk_id);
-
-        // $item->update($data);
-
-        return redirect()->route('pages.admin.disposisi.index');
+            Disposisi::create($disp);
+            return redirect()->route('disposisi.index', compact('disp', 'smasuk'));
+        
     }
 
     /**
@@ -105,5 +97,13 @@ class DisposisiController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function download(SuratMasuk $suratmasuk, $id)
+    {
+        
+        $smasuk = $suratmasuk->findorfail($suratmasuk->id);
+        $disp = Disposisi::findorfail($id);
+        $pdf = PDF::loadview('pages.admin.disposisi.download', compact('disp','smasuk'));
+        return $pdf->stream();
     }
 }

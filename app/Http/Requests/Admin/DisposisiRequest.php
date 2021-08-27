@@ -25,7 +25,7 @@ class DisposisiRequest extends FormRequest
     {
         return [
 
-            'suratmasuk_id' => 'required|integer|exists:surat_masuks,id',
+            
             'tanggal_penyelesaian' => 'required|max:255',
             'tembusan' => 'required|max:255',
         ];

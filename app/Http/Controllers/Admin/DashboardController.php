@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\SuratMasuk;
+use App\SuratKeluar;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -10,6 +11,9 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
-        return view('pages.admin.dashboard');
+        return view('pages.admin.dashboard',[
+            'masuk'=>SuratMasuk::count(),
+            'keluar'=>SuratKeluar::count()
+        ]);
     }
 }

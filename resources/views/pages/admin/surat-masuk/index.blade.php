@@ -58,7 +58,6 @@
                         <tr>
                           <th scope="col" class="sort" data-sort="name">Nomor Surat</th>
                           <th scope="col" class="sort" data-sort="name">Asal Surat</th>
-                          <th scope="col" class="sort" data-sort="text">Tujuan Surat</th>
                           <th scope="col" class="sort" data-sort="date">Tgl diterima</th>
                           <th scope="col" class="sort" data-sort="date">Tgl surat</th>
                           <th scope="col" class="sort" data-sort="name">Perihal</th>
@@ -68,20 +67,19 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @forelse ($surat_masuk as $item)
+                        @forelse ($items as $item)
                         <tr>
                           <th>{{ $item-> nomor_surat }}</th>
                           <th>{{ $item-> asal_surat}}</th>
-                          <th>{{ $item-> tujuan_surat}}</th>
                           <th>{{ $item-> tanggal_diterima }}</th>
                           <th>{{ $item-> tanggal_surat}}</th>
                           <th>{{ $item-> perihal }}</th>
-                          <th><img src="{{ Storage::url($item->file) }}" alt="" style="width: 200px" class="img-thumbnail"></th>
+                          <th>{{ $item-> file }}</th>
                           <th>
                               <a href="{{ route('surat-masuk.edit', $item->id) }}" class="btn btn-info">
                                   <i class="fa fa-pencil-alt"></i>
                               </a>
-                              <a href="{{ route('disposisi.create', $item->id) }}" class="btn btn-success">
+                              <a href="{{ route('disposisi.index', $item->id) }}" class="btn btn-success">
                                 <i class="fa fa-sticky-note"></i>
                             </a>
                               <form action="{{ route('surat-masuk.destroy', $item->id) }}" method="post" class="d-inline">

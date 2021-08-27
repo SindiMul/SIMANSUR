@@ -56,7 +56,7 @@
 
                     <div class="row mt-2 ">
                       <div class="col-sm-6 ">
-                        <label><b>Perihal</b> </label>
+                        <label><b>Perihal</b></label>
                         <input type="text" class="form-control"  name="perihal" placeholder="Perihal" value=" {{ old('perihal') }}">
                       </div>
 

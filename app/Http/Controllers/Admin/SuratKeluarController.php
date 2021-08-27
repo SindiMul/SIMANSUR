@@ -17,7 +17,7 @@ class SuratKeluarController extends Controller
      */
     public function index()
     {
-        $surat_keluar = SuratKeluar::with('disposisi')->get();
+        $surat_keluar = SuratKeluar::all();
 
         return view('pages.admin.surat-keluar.index', [
             'surat_keluar' => $surat_keluar

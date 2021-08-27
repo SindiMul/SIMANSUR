@@ -12,13 +12,13 @@ class Disposisi extends Model
     protected $table = 'disposisis';
 
     protected $fillable = [
-        'surat_masuk_id', 'tanggal_penyelesaian', 'tembusan'
+        'suratmasuk_id', 'tanggal_penyelesaian', 'tembusan'
     ];
 
     protected $hidden = [];
 
     public function surat_masuk()
     {
-        return $this->belongsTo(SuratMasuk::class, 'surat_masuk_id', 'id');
+        return $this->belongsTo(SuratMasuk::class, 'suratmasuk_id', 'id');
     }
 }
