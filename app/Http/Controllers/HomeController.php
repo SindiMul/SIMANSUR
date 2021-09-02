@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\SuratMasuk;
+use App\SuratKeluar;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home',[
+            'masuk'=>SuratMasuk::count(),
+            'keluar'=>SuratKeluar::count()
+        ]);
     }
 }

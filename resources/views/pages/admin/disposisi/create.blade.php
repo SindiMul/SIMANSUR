@@ -39,11 +39,20 @@
                 </div>
 
                 <div class="row mt-2">
-                  <div class="col-sm-6 ">
-                    <label><b>tembusan</b> </label>
-                      <input type="text" class="form-control"  name="tembusan" placeholder="Perihal" value=" {{ old('tembusan') }}">
+                  <div class="col-sm-6">
+                  <label><b> Tujuan Surat</b></label>
+                    <input type="text" class="form-control"  name="tujuan_surat" placeholder="Asal Surat" value=" {{ old('tujuan_surat') }}">
                   </div>
                 </div>
+                
+                <div class="row mt-2">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label><b> Keterangan</b></label>
+                      <textarea type="text" class="form-control"  name="keterangan" cols="40" rows="5" value="{{ old('keterangan') }}"></textarea>
+                    </div>
+                </div>  
+                </div> 
                 <button type="Submit" class="btn btn-primary">Simpan</button>
               </form>
             </div>

@@ -28,10 +28,16 @@ Route::post('/disposisi/{data}', 'DisposisiController@store')->name('disposisi.s
 Route::get('/disposisi/{suratmasuk}/{id}/download', 'DisposisiController@download')->name('disposisi.download');
 Route::prefix('admin')
     ->namespace('Admin')
+    // ->middleware(['auth', 'admin'])
     ->group(function () {
         Route::get('/', 'DashboardController@index')
             ->name('dashboard');
 
         Route::resource('surat-masuk', 'SuratMasukController');
         Route::resource('surat-keluar', 'SuratKeluarController');
+        Route::resource('surat-tugas', 'SuratTugasController');
+        Route::resource('data-pegawai', 'DataPegawaiController');
     });
+
+Auth::routes();
+

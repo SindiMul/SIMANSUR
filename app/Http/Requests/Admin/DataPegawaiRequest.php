@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DisposisiRequest extends FormRequest
+class DataPegawaiRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,10 @@ class DisposisiRequest extends FormRequest
     public function rules()
     {
         return [
-
-            
-            'tanggal_penyelesaian' => 'required|max:255',
-            'keterangan' => 'required|max:255',
-            'tujuan_surat' => 'required|max:255',
+            'nama_petugas' => 'required|max:255',
+            'nip' => 'required|max:255',
+            'pangkat' => 'required|max:255',
+            'jabatan' => 'required |max:255',
         ];
     }
 }

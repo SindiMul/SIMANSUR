@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\SuratMasuk;
 use App\SuratKeluar;
+use App\DataPegawai;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -13,7 +14,8 @@ class DashboardController extends Controller
     {
         return view('pages.admin.dashboard',[
             'masuk'=>SuratMasuk::count(),
-            'keluar'=>SuratKeluar::count()
+            'keluar'=>SuratKeluar::count(),
+            'datapegawai'=>DataPegawai::count()
         ]);
     }
 }

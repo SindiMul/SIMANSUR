@@ -15,7 +15,7 @@
           <div class="container">
           <div class="card mt-3">
             <div class="card-header">
-             <h2> TAMBAH DATA SURAT MASUK</h2> 
+             <h2> TAMBAH DATA SURAT KELUAR</h2> 
             </div>
             @if ($errors->any())
             <div class="alert alert-danger">

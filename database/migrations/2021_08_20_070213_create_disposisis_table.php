@@ -17,7 +17,8 @@ class CreateDisposisisTable extends Migration
             $table->id();
             $table->integer('suratmasuk_id');
             $table->date('tanggal_penyelesaian');
-            $table->string('tembusan');
+            $table->string('keterangan')->nullable();
+            $table->string('tujuan_surat');
             $table->softDeletes();
             $table->timestamps();
         });

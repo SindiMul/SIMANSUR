@@ -12,7 +12,7 @@ class Disposisi extends Model
     protected $table = 'disposisis';
 
     protected $fillable = [
-        'suratmasuk_id', 'tanggal_penyelesaian', 'tembusan'
+        'suratmasuk_id', 'tanggal_penyelesaian', 'keterangan', 'tujuan_surat'
     ];
 
     protected $hidden = [];

@@ -30,7 +30,6 @@ class SuratMasukRequest extends FormRequest
             'asal_surat' => 'required|max:255',
             'tanggal_diterima' => 'required',
             'tanggal_surat' => 'required',
-            'keterangan' => 'required|max:255',
             'file' => 'required',
         ];
     }
