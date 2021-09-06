@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDataPegawai extends Migration
+class CreateDataPetugas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateDataPegawai extends Migration
      */
     public function up()
     {
-        Schema::create('data_pegawai', function (Blueprint $table) {
+        Schema::create('data_petugas', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_petugas');
-            $table->integer('nip');
-            $table->string('pangkat');
-            $table->string('jabatan');
+            $table->Integer('surat_tugas_id');
+            $table->String('data_pegawai_id');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -31,6 +29,6 @@ class CreateDataPegawai extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('data_pegawai');
+        Schema::dropIfExists('data_petugas');
     }
 }

@@ -64,7 +64,7 @@
                         </div>
                         <div class="col-sm-6 ">
                         <label><b>Perihal</b></label>
-                        <input type="text" class="form-control"  name="perihal" placeholder="Perihal" value=" {{ old('perihal') }}">
+                        <input type="text" class="form-control"  name="perihal"  value=" {{ old('perihal') }}" placeholder="Perihal">
                       
                      </div>
                     </div>

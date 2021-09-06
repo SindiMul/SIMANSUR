@@ -12,12 +12,12 @@ class DataPegawai extends Model
      protected $table = 'data_pegawai';
 
      protected $fillable = [
-          'nama_petugas', 'nip', 'pangkat',  'jabatan'
+           'nip','nama_petugas', 'pangkat',  'jabatan'
      ];
 
      protected $hidden = [];
-     // public function surat_tugas()
-     // {
-     //      return $this->hasOne(SuratTugas::class, 'datapegawai_id');
-     // }
+
+     public function data_petugas() {
+          return $this->hasMany(DataPetugas::class, 'data_petugas_id','id');
+     }
 }

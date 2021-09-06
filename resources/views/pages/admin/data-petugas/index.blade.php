@@ -37,7 +37,7 @@
               </nav>
             </div>
             <div class="col-lg-5 col-5 text-right">
-              <a href="{{route ('data-pegawai.create')}}" class="btn btn-sm btn-neutral">Tambah Data
+              <a href="{{route ('data-petugas.create')}}" class="btn btn-sm btn-neutral">Tambah Data
                  </a>
             </div>
           </div>
@@ -57,28 +57,21 @@
                       <thead class="thead-light">
                         <tr>
                           <th scope="col" class="sort" data-sort="name">Nama Petugas</th>
-                          <th scope="col" class="sort" data-sort="name">NIP</th>
-                          <th scope="col" class="sort" data-sort="name">Pangkat</th>
-                          <th scope="col" class="sort" data-sort="name">Jabatan</th>
+                          <th scope="col" class="sort" data-sort="name">Tempat Tugas</th>
                           <th scope="col" class="sort" data-sort="name">Action</th>
                           <th scope="col"></th>
                         </tr>
-                      </thead>
+                       </thead>
                       <tbody>
                         @forelse ($items as $item)
                         <tr>
-                          <th>{{ $item-> nama_petugas }}</th>
-                          <th>{{ $item-> nip }}</th>
-                          <th>{{ $item-> pangkat }}</th>
-                          <th>{{ $item-> jabatan }}</th>
-                          <th><img src="{{ Storage::url($item->file) }}" alt="" style="width: 200px" class="img-thumbnail"></th>
+                          <th>nama:{{ $item-> data_pegawai->nama_petugas }},</br>nip{{ $item-> data_pegawai->nip }},{{ $item-> data_pegawai->jabatan }}</th>
+                          <th>{{ $item-> surat_tugas->tempat }},{{ $item-> surat_tugas->perihal }}</th>
                           <th>
-
-                            
-                              <a href="{{ route('surat-keluar.edit', $item->id) }}" class="btn btn-info">
+                            <a href="{{ route('data-petugas.edit', $item->id) }}" class="btn btn-info">
                                   <i class="fa fa-pencil-alt"></i>
                               </a>
-                              <form action="{{ route('surat-keluar.destroy', $item->id) }}" method="post" class="d-inline">
+                              <form action="{{ route('data-petugas.destroy', $item->id) }}" method="post" class="d-inline">
                                   @csrf
                                   @method('delete')
                                   <button class="btn btn-danger">

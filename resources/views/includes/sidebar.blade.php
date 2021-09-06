@@ -46,6 +46,12 @@
             <span class="nav-link-text">Surat Tugas</span>
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route ('data-petugas.index')}}">
+            <i class="ni ni-key-25 text-info"></i>
+            <span class="nav-link-text">Data Petugas</span>
+          </a>
+        </li>
       </ul>
       <!-- Divider -->
       <hr class="my-3">
