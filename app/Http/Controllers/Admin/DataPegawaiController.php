@@ -65,7 +65,10 @@ class DataPegawaiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = DataPegawai::findOrFail($id);
+        return view('pages.admin.data-pegawai.edit', [
+            'item' => $item
+        ]);
     }
 
     /**
@@ -77,7 +80,12 @@ class DataPegawaiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $item = DataPegawai::findOrFail($id);
+
+        $item->update($data);
+
+        return redirect()->route('data-pegawai.index');
     }
 
     /**
@@ -88,6 +96,9 @@ class DataPegawaiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = DataPegawai::findorFail($id);
+        $item->delete();
+
+        return redirect()->route('data-pegawai.index');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDataPetugas extends Migration
+class CreateSuratTugasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,14 @@ class CreateDataPetugas extends Migration
      */
     public function up()
     {
-        Schema::create('data_petugas', function (Blueprint $table) {
+        Schema::create('surat_tugas', function (Blueprint $table) {
             $table->id();
-            $table->Integer('surat_tugas_id');
-            $table->String('data_pegawai_id');
+             $table->string('nomor');
+            $table->string('perihal');
+            $table->string('dasar');
+            $table->date('hari');
+            $table->string('pukul');
+            $table->string('tempat');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -29,6 +33,6 @@ class CreateDataPetugas extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('data_petugas');
+        Schema::dropIfExists('surat_tugas');
     }
 }

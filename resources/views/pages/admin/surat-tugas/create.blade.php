@@ -28,47 +28,69 @@
         @endif
             <div class="card-body">
               <div class="table-responsive">
-              <form action="{{ route('surat-tugas.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <label for="nomor_surat"> <b> Nomor Surat</b> </label>
-                        <input type="text" class="form-control"  name="nomor_surat" placeholder="Nomor Surat" value=" {{ old('nomor_surat') }}">
-                      </div>
-                      <div class="col-sm-6">
-                        <label> <b>Tanggal Surat</b> </label>
-                        <input type="date" class="form-control"  name="tanggal_surat" value=" {{ old('tanggal_surat') }}">
-                      </div>
+              <form action="{{ route('surat-tugas.store') }}" method="POST" >
+                @csrf
+               
+                
+                  
+                <div class="row">
+                  <div class="col-sm-6">
+                  <label for="nomor"> <b> Nomor Surat</b> </label>
+                  <input type="text" class="form-control"  name="nomor" placeholder="Nomor Surat" value=" {{ old('nomor') }}">
+                  </div>
+                 
 
+                  <div class="col-sm-6">
+                  <label><b>Perihal</b></label>
+                    <input type="text" class="form-control"  name="perihal" placeholder="Asal Surat" value=" {{ old('perihal') }}">
+                  </div>
+                  </div>
+                  
+                  <div class="row mt-2">
+                  <div class="col-sm-6">
+                  <label> <b>Dasar</b> </label>
+                  <textarea class="form-control"  name="dasar" cols="40" rows="5" placeholder="dasar" value=" {{ old('dasar') }}"></textarea>
+                  </div>
+                
+                  <div class="col-sm-6">
+                  <label><b>Hari</b></label>
+                    <input type="date" class="form-control"  name="hari" placeholder="Asal Surat" value=" {{ old('hari') }}">
+                  </div>
+                  </div>
+
+                  <div class="row mt-2">
+                  <div class="col-sm-6 ">                  
+                  <label><b>Jam</b></label>
+                    <input type="text" class="form-control"  name="pukul" placeholder="Asal Surat" value=" {{ old('pukul') }}">
+                  </div>
+               
+                  <div class="col-sm-6">
+                  <label><b>Tempat</b></label>
+                    <input type="text" class="form-control"  name="tempat" placeholder="Asal Surat" value=" {{ old('tempat') }}">
+                  </div>
+                </div>
+                <div class="form-group">
+                        <label for="data_pegawai_id">Nama Pegawai</label>
+                        <select name="data_pegawai_id[]" required class="form-control"  >
+                            <option value="">Pilih </option>
+                            @foreach ($data_pegawai as $pegawai)
+                    <option value="{{ $pegawai->id }}">
+                    {{ $pegawai->nama_petugas }}
+                    </option>
+                    @endforeach
+                        </select>
                     </div>
 
-                    <div class="row mt-2">
-                    <div class="col-sm-6 ">
-                        <label><b>Tempat</b></label>
-                        <input type="text" class="form-control"  name="tempat" placeholder="Perihal" value=" {{ old('tempat') }}">
-                      </div>
-                      <div class="col-sm-6">
-                        <label> <b>Tanggal Tugas</b> </label>
-                        <input type="date" class="form-control"  name="tanggal_tugas" value=" {{ old('tanggal_tugas') }}">
-                      </div>
 
-                      
-                    </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label"></label>
+                  <div class="col-sm-3 ">
+                    <a href="#" class="addpe btn btn-success form-control">tambah</a>
+                  </div>
+                </div>
 
-                    <div class="row mt-2 ">
-                      <div class="col-sm-6">
-                        <div class="form-group">
-                        <label><b> Keterangan</b></label>
-                          <textarea type="text" class="form-control"  name="keterangan" cols="40" rows="5" value="{{ old('keterangan') }}"></textarea>
-                        </div>
-                        </div>
-                        <div class="col-sm-6 ">
-                        <label><b>Perihal</b></label>
-                        <input type="text" class="form-control"  name="perihal"  value=" {{ old('perihal') }}" placeholder="Perihal">
-                      
-                     </div>
-                    </div>
-                 <button type="Submit" class="btn btn-primary mt-2">Simpan</button>
+                <div class="petugas"></div>
+                <button type="Submit" class="btn btn-primary">Simpan</button>
               </form>
             </div>
           </div>
@@ -76,6 +98,22 @@
           </div>
           
           {{-- end form --}}
+          <script src="{{ url ('backend/assets/vendor/jquery/dist/jquery.min.js') }}"></script>
+          <script type="text/javascript">
+          $(".addpe").on('click', function(){
+            addpe();
+          });
+          function addpe(){
+            var surat='<div><div class="form-group"><label for="data_pegawai_id">Nama Pegawai</label><select name="data_pegawai_id[]" required class="form-control"><option value="">Pilih </option>@foreach($data_pegawai as $pegawai)<option value="{{ $pegawai->id }}">{{  $pegawai->nama_petugas  }}</option>@endforeach</select></div></div>';
+            $('.petugas').append(surat);
+             };
           
+          
+          </script>
     
 @endsection
+
+
+
+
+

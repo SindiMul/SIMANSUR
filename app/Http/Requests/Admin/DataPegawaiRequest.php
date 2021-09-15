@@ -25,7 +25,7 @@ class DataPegawaiRequest extends FormRequest
     {
         return [
             'nama_petugas' => 'required|max:255',
-            'nip' => 'required|integer|max:255',
+            'nip' => 'required|max:255',
             'pangkat' => 'required|max:255',
             'jabatan' => 'required |max:255',
         ];

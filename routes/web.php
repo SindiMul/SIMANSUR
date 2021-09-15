@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
 
 
@@ -26,6 +26,7 @@ Route::get('/disposisi/{data}', 'DisposisiController@index')->name('disposisi.in
 Route::get('/disposisi/{data}/create', 'DisposisiController@create')->name('disposisi-create');
 Route::post('/disposisi/{data}', 'DisposisiController@store')->name('disposisi.store');
 Route::get('/disposisi/{suratmasuk}/{id}/download', 'DisposisiController@download')->name('disposisi.download');
+Route::get('/surattugas/{surat}/download', 'PrintController@download')->name('surat.download');
 Route::prefix('admin')
     ->namespace('Admin')
     // ->middleware(['auth', 'admin'])
@@ -38,6 +39,8 @@ Route::prefix('admin')
         Route::resource('surat-tugas', 'SuratTugasController');
         Route::resource('data-pegawai', 'DataPegawaiController');
         Route::resource('data-petugas', 'DataPetugasController');
+        Route::resource('surat-tugas', 'SuratTugasController');
+       
     });
 
 Auth::routes();

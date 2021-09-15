@@ -49,7 +49,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: white;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -79,22 +79,20 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    WELLCOME
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+          
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                         <div class="carousel-inner">
+                         <div class="carousel-item active">
+                             <img src="{{  url('backend/assets/img/brand/Contoh.jpg') }}" style="width:1366px" class="d-block" alt="...">
+                         </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </body>
+        </div>   
+</body>
 </html>
+

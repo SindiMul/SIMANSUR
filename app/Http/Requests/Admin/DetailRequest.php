@@ -25,7 +25,7 @@ class \DataPetugasRequest extends FormRequest
     {
         return [
             'data_pegawai_id'=> 'required|exists:data_pegawai, id',
-            'surat_tugas_id'=> 'required|integer|exists:surat_tugas, id',
+            
         ];
     }
 }

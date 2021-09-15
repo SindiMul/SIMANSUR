@@ -56,12 +56,11 @@
                     <table class="table align-items-center table-flush">
                       <thead class="thead-light">
                         <tr>
-                          <th scope="col" class="sort" data-sort="name">Nomor Surat</th>
-                          <th scope="col" class="sort" data-sort="date">Tanggal Surat</th>
-                          <th scope="col" class="sort" data-sort="date">Tanggal Tugas</th>
-                          <th scope="col" class="sort" data-sort="date">Tempat</th>
-                          <th scope="col" class="sort" data-sort="name">Perihal</th>
-                          <th scope="col" class="sort" data-sort="time">Keterangan</th>
+                          <th scope="col" class="sort" data-sort="name">nomor</th>
+                          <th scope="col" class="sort" data-sort="name">dasar</th>
+                          <th scope="col" class="sort" data-sort="date">hari</th>
+                          <th scope="col" class="sort" data-sort="name">pukul</th>
+                          <th scope="col" class="sort" data-sort="name">tempat</th>
                           <th scope="col" class="sort" data-sort="name">Action</th>
                           <th scope="col"></th>
                         </tr>
@@ -69,30 +68,35 @@
                       <tbody>
                         @forelse ($items as $item)
                         <tr>
-                          <th>{{ $item-> nomor_surat }}</th>
-                          <th>{{ $item-> tanggal_surat}}</th>
-                          <th>{{ $item-> tanggal_tugas}}</th>
+                          <th>{{ $item-> nomor }}</th>
+                          <th>{{ $item-> dasar}}</th>
+                          <th>{{ $item-> hari}}</th>
+                          <th>{{ $item-> pukul }}</th>
                           <th>{{ $item-> tempat }}</th>
-                          <th>{{ $item-> perihal }}</th>
-                          <th>{{ $item-> keterangan}}</th>
-                          <th>
-                              <a href="{{ route('surat-tugas.edit', $item->id) }}" class="btn btn-info">
-                                  <i class="fa fa-pencil-alt"></i>
-                              </a>
-                              <form action="{{ route('surat-tugas.destroy', $item->id) }}" method="post" class="d-inline">
+                          
+                          </th>
+                          <th><a class="btn btn-primary btn-sm my-1 mr-sm-1"
+                                        href="{{ route('surat.download', [$item->id]) }}"
+                                        target="_blank" role="button"><i class="fas fa-print"></i> Cetak</a></th>
+                        
+                                <th>
+                                <form action="{{ route('surat-tugas.destroy', $item->id) }}" method="post" class="d-inline">
                                   @csrf
                                   @method('delete')
                                   <button class="btn btn-danger">
                                       <i class="fa fa-trash"></i>
                                   </button>
                               </form>
-                          </th>
-                        </tr>
+                                </th>
+                              </tr>
+                              
+          
               @empty
                   <td colspan="7" class="text-center">
                       Data Kosong
                   </td>
               @endforelse
+              
                         
                         </tbody>
                       

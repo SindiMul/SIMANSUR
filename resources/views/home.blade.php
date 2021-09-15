@@ -36,12 +36,11 @@
                       <i class="fas fa-envelope text-white"></i>
                       </div>
                     </div>
-                    <p class="mt-3 mb-0 text-sm">
-                  <a href="/suratmasuk/index" class=" col-xl-3 bg-primary text-white">Lihat Detail <i
-                  class="fas fa-arrow-circle-right"></i></a>
-                  </p>
                   </div>
-                  
+                  <p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"> </span>
+                    <span class="text-nowrap"></span>
+                  </p>
                 </div>
               </div>
             </div>
@@ -61,8 +60,8 @@
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-sm">
-                  <a href="/suratmasuk/index" class=" col-xl-3 bg-primary text-white">Lihat Detail <i
-                  class="fas fa-arrow-circle-right"></i></a>
+                    <span class="text-success mr-2"> </span>
+                    <span class="text-nowrap"></span>
                   </p>
                 </div>
               </div>
@@ -73,19 +72,23 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">....</h5>
-                      <span class="h2 font-weight-bold mb-0">{{$keluar}}</span>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Data Pegawai</h5>
+                      <span class="h2 font-weight-bold mb-0">{{$datapegawai}}</span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-gradient-primary text-white rounded-circle shadow">
-                        <i class="fas fa-envelope-open-text text-white"></i>
+                      <i class="fas fa-user-alt text-white"></i>
                       </div>
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"> </span>
+                    <span class="text-nowrap"></span>
+                  </p>
+                  <!-- <p class="mt-3 mb-0 text-sm">
                   <a href="/suratmasuk/index" class=" col-xl-3 bg-primary text-white">Lihat Detail <i
                   class="fas fa-arrow-circle-right"></i></a>
-                  </p>
+                  </p> -->
                 </div>
               </div>
             </div>

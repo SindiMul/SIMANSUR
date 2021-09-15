@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 use App\SuratMasuk;
 use App\SuratKeluar;
+use App\DataPegawai;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -26,7 +28,8 @@ class HomeController extends Controller
     {
         return view('home',[
             'masuk'=>SuratMasuk::count(),
-            'keluar'=>SuratKeluar::count()
+            'keluar'=>SuratKeluar::count(),
+            'datapegawai'=>DataPegawai::count()
         ]);
     }
 }

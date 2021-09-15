@@ -3,9 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Http\Requests\Admin\SuraTugasRequest;
+use App\Http\Requests\Admin\SuratTugasRequest;
 use App\SuratTugas;
+use App\detail;
+use App\DataPegawai;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+
+
 class SuratTugasController extends Controller
 {
     /**
@@ -16,9 +22,11 @@ class SuratTugasController extends Controller
     public function index()
     {
         $items = SuratTugas::all();
+        
 
         return view('pages.admin.surat-tugas.index', [
-            'items' => $items
+            'items' => $items,
+           
         ]);
     }
 
@@ -29,7 +37,10 @@ class SuratTugasController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.surat-tugas.create');
+        $data_pegawai =DataPegawai::all();
+        return view('pages.admin.surat-tugas.create', [
+            'data_pegawai' => $data_pegawai
+        ]);
     }
 
     /**
@@ -40,8 +51,32 @@ class SuratTugasController extends Controller
      */
     public function store(Request $request)
     {
+        
         $data = $request->all();
-        SuratTugas::create($data);
+        
+        $surat = new SuratTugas;
+        $surat->nomor =$data['nomor'];
+        $surat->perihal =$data['perihal'];
+        $surat->dasar=$data['dasar'];
+        $surat->hari=$data['hari'];
+        $surat->pukul=$data['pukul'];
+        $surat->tempat=$data['tempat'];
+        // dd($data);
+        $surat->save();
+        // $detail = new detail;
+        // $detail->surat_id =$surat->id;
+        $b=$request->data_pegawai_id;
+        for ($i=0; $i < count($b); $i++) { 
+            $datasave = [
+                'surat_id'=>$surat->id,
+                'data_pegawai_id'=>$b[$i]
+            ];
+            detail::create($datasave);
+        }
+        
+        
+
+
         return redirect()->route('surat-tugas.index');
     }
 
@@ -64,7 +99,13 @@ class SuratTugasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = DataPegawai::findOrFail($id);
+        $data_pegawai = DataPegawai::all();
+
+        return view('pages.admin.surat-tugas.edit', [
+            'item' => $item,
+            'data_pegawai' => $data_pegawai
+        ]);
     }
 
     /**
@@ -74,9 +115,16 @@ class SuratTugasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SuratTugasRequest $request, $id)
     {
-        //
+        $data = $request->all();
+
+
+        $item =SuratTugas::findOrFail($id);
+
+        $item->update($data);
+
+        return redirect()->route('surat-tugas.index');
     }
 
     /**
@@ -92,4 +140,6 @@ class SuratTugasController extends Controller
 
         return redirect()->route('surat-tugas.index');
     }
+
+   
 }

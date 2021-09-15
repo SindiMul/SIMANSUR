@@ -24,12 +24,12 @@ class SuratTugasRequest extends FormRequest
     public function rules()
     {
         return [
-            'nomor_surat' => 'required|max:255',
+            'nomor' => 'required|max:255',
             'perihal' => 'required|max:255',
             'tempat' => 'required|max:255',
-            'tanggal_tugas' => 'required',
-            'tanggal_surat' => 'required',
-            'keterangan' => 'required |max:255',
+            'hari' => 'required',
+            'pukul' => 'required|max:255',
+            'dasar' => 'required |max:255',
         ];
     }
 }

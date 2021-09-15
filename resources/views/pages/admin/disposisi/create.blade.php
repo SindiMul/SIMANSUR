@@ -31,7 +31,6 @@
               <form action="{{ route('disposisi.store', $smasuk) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
-
                   <div class="col-sm-6">
                   <label> <b>Tanggal Penyelesaian</b> </label>
                     <input type="date" class="form-control"  name="tanggal_penyelesaian" value=" {{ old('tanggal_penyelesaian') }}">
