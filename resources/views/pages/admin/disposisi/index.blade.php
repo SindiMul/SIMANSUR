@@ -71,7 +71,7 @@
                         <tr>
                           <th>{{ $smasuk-> nomor_surat }}</th>
                           <th>{{ $smasuk-> tujuan_surat}}</th>
-                          <th>{{ $smasuk-> tanggal_surat}}</th>
+                          <th>{{ date ('d-m-Y', strtotime( $smasuk-> tanggal_surat)) }}</th>
                           <th>{{ $smasuk-> perihal }}</th>
                           <th>{{ $smasuk-> file }}</th>
                           <th>{{ $items-> keterangan }}</th>

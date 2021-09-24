@@ -139,7 +139,7 @@
                     <tr>
                         <td width="130px">Tanggal </td>
                             
-                            <td width="425px">: {{ $disp->hari }}</td> 
+                            <td width="425px">: {{  date ('d-m-Y', strtotime($disp->hari)) }}</td> 
                     </tr>
                    
                     <tr>
@@ -176,6 +176,9 @@
             <!-- end keterangan akhir surat -->
         </center>
     </div>
+    <script type="text/javascript">
+  window.print()
+  </script>
 </body>
 
 </html>

@@ -55,6 +55,7 @@ class SuratTugasController extends Controller
         $data = $request->all();
         
         $surat = new SuratTugas;
+        $surat->ttd_id =$data['ttd_id'];
         $surat->nomor =$data['nomor'];
         $surat->perihal =$data['perihal'];
         $surat->dasar=$data['dasar'];

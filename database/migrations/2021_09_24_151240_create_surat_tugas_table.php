@@ -15,7 +15,8 @@ class CreateSuratTugasTable extends Migration
     {
         Schema::create('surat_tugas', function (Blueprint $table) {
             $table->id();
-             $table->string('nomor');
+            $table->integer('ttd_id');
+            $table->string('nomor');
             $table->string('perihal');
             $table->string('dasar');
             $table->date('hari');

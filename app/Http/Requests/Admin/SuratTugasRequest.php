@@ -24,6 +24,7 @@ class SuratTugasRequest extends FormRequest
     public function rules()
     {
         return [
+         
             'nomor' => 'required|max:255',
             'perihal' => 'required|max:255',
             'tempat' => 'required|max:255',

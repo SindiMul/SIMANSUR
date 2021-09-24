@@ -45,10 +45,11 @@ class SuratKeluarController extends Controller
     public function store(SuratKeluarRequest $request)
     {
         $data = $request->all();
-        $data['file'] = $request->file('file')->store(
-            'assets/gallery',
-            'public'
+        $file = $data['file']->getClientOriginalName();
+        $data['file']=$request->file->storeAs( 'public/assets/surat keluar', $file
         );
+       $data['file']=$file;
+
         SuratKeluar::create($data);
         return redirect()->route('surat-keluar.index');
     }

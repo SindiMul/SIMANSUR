@@ -41,7 +41,7 @@
 
              <td style="padding: 10px;" valign="top">
                 <b>Tanggal Penyelesaian :</b>
-                <p>{{ $disp->tanggal_penyelesaian }}</p>
+                <p>{{  date ('d-m-Y', strtotime($disp->tanggal_penyelesaian)) }}</p>
              </td>
         </tr> 
 
@@ -63,7 +63,7 @@
          <tr>
             <td width="200">Tanggal Surat</td>
             <td width="1">:</td>
-            <td> &nbsp;{{ $smasuk->tanggal_surat }}</td>
+            <td> &nbsp;{{ date ('d-m-Y', strtotime( $smasuk->tanggal_surat )) }}</td>
         </tr>
          <tr>
             <td width="200">No. Surat</td>

@@ -22,7 +22,12 @@ class PrintController extends Controller
         $item = SuratTugas::findorFail($id);
         $tanggal=  Carbon::now()->isoFormat('D MMMM Y');
         $disp =  SuratTugas::with('iii','ppp')->where('id',$id)->first();
-        $pdf = PDF::loadview('pages.admin.surat-tugas.d', compact('disp', 'item','tanggal'));
-        return $pdf->stream();
+        return view('pages.admin.surat-tugas.d',[
+            'disp' => $disp,
+            'tanggal'=>$tanggal,
+            'item'=>$item
+        ]);
+        // $pdf = PDF::loadview('pages.admin.surat-tugas.d', compact('disp', 'item','tanggal'));
+        // return $pdf->stream();
     }
 }

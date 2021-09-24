@@ -17,7 +17,8 @@ class DataPegawai extends Model
 
      protected $hidden = [];
 
-     public function data_petugas() {
-          return $this->hasMany(DataPetugas::class, 'data_petugas_id','id');
-     }
+     // public function data_petugas() {
+     //      return $this->hasMany(DataPetugas::class, 'data_petugas_id','id');
+     // }
+   
 }

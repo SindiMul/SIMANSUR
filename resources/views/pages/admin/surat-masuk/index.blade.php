@@ -71,10 +71,11 @@
                         <tr>
                           <th>{{ $item-> nomor_surat }}</th>
                           <th>{{ $item-> asal_surat}}</th>
-                          <th>{{ $item-> tanggal_diterima }}</th>
-                          <th>{{ $item-> tanggal_surat}}</th>
-                          <th>{{ $item-> perihal }}</th>
+                          <th>{{ date ('d-m-Y', strtotime($item-> tanggal_diterima )) }}</th>
+                          <th>{{ date ('d-m-Y', strtotime($item-> tanggal_surat )) }}</th>
+                          <th style= "width:200px; word-wrap:break-word;">{{ $item-> perihal }}</th>
                           <th>{{ $item-> file }}</th>
+                          @if($user->role =='Admin')
                           <th>
                               <a href="{{ route('surat-masuk.edit', $item->id) }}" class="btn btn-info">
                                   <i class="fa fa-pencil-alt"></i>
@@ -88,6 +89,10 @@
                                   <button class="btn btn-danger">
                                       <i class="fa fa-trash"></i>
                                   </button>
+                                @else
+                               <th></th>
+                               @endif
+                         
                               </form>
                           </th>
                         </tr>

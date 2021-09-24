@@ -43,11 +43,9 @@
                   <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <div class="media align-items-center">
                           <span class="avatar avatar-sm rounded-circle">
-                              <img alt="Image placeholder" style="border-radius: 50%; !important" src="assets/img/profile/
-                              {{-- <?= $mhsLogin['foto'] ?> --}}
-                              "></span>
+                              <img alt="Image" placeholder=" " style="border-radius: 50%; !important" src="#"></span>
                           <div class=" media-body ml-2 d-none d-lg-block">
-                              <span class="mb-0 text-sm  font-weight-bold"> sindi </span>
+                              <span class="mb-0 text-sm  font-weight-bold"> {{ Auth::user()->name }} </span>
                           </div>
                       </div>
                   </a>
@@ -55,16 +53,8 @@
                       <div class="dropdown-header noti-title">
                           <h6 class="text-overflow m-0">Selamat Datang !</h6>
                       </div>
-                      <a href="#!" class="dropdown-item">
-                          <i class="ni ni-single-02"></i>
-                          <span>My profile</span>
-                      </a>
-                      <a href="#!" class="dropdown-item">
-                          <i class="ni ni-settings-gear-65"></i>
-                          <span>Settings</span>
-                      </a>
                       <div class="dropdown-divider"></div>
-                      <a href="logout.php" class="dropdown-item">
+                      <a href="login.php" class="dropdown-item">
                           <i class="ni ni-user-run"></i>
                           <span>Logout</span>
                       </a>

@@ -53,14 +53,15 @@
       
                   <!-- My Files -->
                   <div class="table-responsive">
-                    <table class="table align-items-center table-flush">
+                    <table class="table align-items-center table-flush" >
                       <thead class="thead-light">
                         <tr>
                           <th scope="col" class="sort" data-sort="name">nomor</th>
-                          <th scope="col" class="sort" data-sort="name">dasar</th>
+                          <th scope="col" class="sort" data-sort="name" >dasar</th>
                           <th scope="col" class="sort" data-sort="date">hari</th>
                           <th scope="col" class="sort" data-sort="name">pukul</th>
                           <th scope="col" class="sort" data-sort="name">tempat</th>
+                         <th scope="col" class="sort" data-sort="name">ttd</th>
                           <th scope="col" class="sort" data-sort="name">Action</th>
                           <th scope="col"></th>
                         </tr>
@@ -69,11 +70,12 @@
                         @forelse ($items as $item)
                         <tr>
                           <th>{{ $item-> nomor }}</th>
-                          <th>{{ $item-> dasar}}</th>
-                          <th>{{ $item-> hari}}</th>
+                          <th style= "width:200px; word-wrap:break-word;">{{ $item-> dasar}}</th>
+                          <th>{{  date ('d-m-Y', strtotime( $item-> hari )) }}</th>
                           <th>{{ $item-> pukul }}</th>
                           <th>{{ $item-> tempat }}</th>
-                          
+                          <th>{{ $item-> tempat }}</th>
+                          <th>{{ $item->ttt->nama_petugas }}</th>
                           </th>
                           <th><a class="btn btn-primary btn-sm my-1 mr-sm-1"
                                         href="{{ route('surat.download', [$item->id]) }}"

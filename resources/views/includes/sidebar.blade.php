@@ -34,16 +34,22 @@
             <span class="nav-link-text">Surat Keluar</span>
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="#">
             <i class="fas fa-book text-primary"></i>
             <span class="nav-link-text">Buku Agenda</span>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link" href="{{route ('surat-tugas.index')}}">
             <i class="ni ni-key-25 text-info"></i>
             <span class="nav-link-text">Surat Tugas</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{{route ('data-pegawai.index')}}">
+          <i class="fas fa-user-alt text-primary"></i>
+            <span class="nav-link-text">Data Pegawai</span>
           </a>
         </li>
       
@@ -51,26 +57,21 @@
       
       <!-- <div class="navbar-inner">
     <!-- Collapse -->
-    <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+    <!-- <div class="collapse navbar-collapse" id="sidenav-collapse-main">
       <!-- Nav items -->
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" href="{{route ('data-pegawai.index')}}">
-          <i class="fas fa-user-alt text-primary"></i>
-            <span class="nav-link-text">Data Pegawai</span>
-          </a>
-        </li>
+      <!-- <ul class="navbar-nav"> -->
+        
         
         
       <!-- Navigation -->
-      <!-- <ul class="navbar-nav mb-md-3"> -->
+      <!-- <ul class="navbar-nav mb-md-3">
         <li class="nav-item">
           <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
             <i class="ni ni-spaceship"></i>
             <span class="nav-link-text">Getting started</span>
           </a>
-        </li>
-      </ul>
+        </li> -->
+      <!-- </ul> -->
     </div>
   </div>
   

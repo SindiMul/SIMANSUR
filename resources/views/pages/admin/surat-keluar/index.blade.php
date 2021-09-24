@@ -70,7 +70,7 @@
                         <tr>
                           <th>{{ $item-> nomor_surat }}</th>
                           <th>{{ $item-> tujuan_surat}}</th>
-                          <th>{{ $item-> tanggal_surat}}</th>
+                          <th>{{  date ('d-m-Y', strtotime( $item-> tanggal_sura )) }}</th>
                           <th>{{ $item-> perihal }}</th>
                           <th><img src="{{ Storage::url($item->file) }}" alt="" style="width: 200px" class="img-thumbnail"></th>
                           <th>

@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\SuratMasukRequest;
 use App\SuratMasuk;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 
@@ -18,9 +20,11 @@ class SuratMasukController extends Controller
     public function index()
     {
         $items = SuratMasuk::all();
+        $user= Auth::user();
 
         return view('pages.admin.surat-masuk.index', [
-            'items' => $items
+            'items' => $items,
+            'user' =>$user
         ]);
     }
 
@@ -44,10 +48,11 @@ class SuratMasukController extends Controller
     public function store(SuratMasukRequest $request)
     {
         $data = $request->all();
-        $data['file'] = $request->file('file')->store(
-            'assets/gallery',
-            'public'
+        $file = $data['file']->getClientOriginalName();
+        $data['file']=$request->file->storeAs( 'public/assets/surat masuk', $file
         );
+       $data['file']=$file;
+
         SuratMasuk::create($data);
         return redirect()->route('surat-masuk.index');
     }

@@ -69,6 +69,17 @@
                     <input type="text" class="form-control"  name="tempat" placeholder="Asal Surat" value=" {{ old('tempat') }}">
                   </div>
                 </div>
+                  <div class="form-group">
+                        <label for="ttd_id">Penanda Tangan</label>
+                        <select name="ttd_id[]" required class="form-control"  >
+                            <option value="">Pilih </option>
+                            @foreach ($data_pegawai as $pegawai)
+                    <option value="{{ $pegawai->id }}">
+                    {{ $pegawai->nama_petugas }}
+                    </option>
+                    @endforeach
+                        </select>
+                    </div>
                 <div class="form-group">
                         <label for="data_pegawai_id">Nama Pegawai</label>
                         <select name="data_pegawai_id[]" required class="form-control"  >
@@ -80,14 +91,14 @@
                     @endforeach
                         </select>
                     </div>
-
-
+                 
                 <div class="form-group row">
                   <label class="col-sm-2 col-form-label"></label>
                   <div class="col-sm-3 ">
                     <a href="#" class="addpe btn btn-success form-control">tambah</a>
                   </div>
                 </div>
+ 
 
                 <div class="petugas"></div>
                 <button type="Submit" class="btn btn-primary">Simpan</button>
