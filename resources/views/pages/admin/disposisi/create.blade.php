@@ -47,7 +47,7 @@
                 <div class="row mt-2">
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label><b> Keterangan</b></label>
+                    <label><b> Informasi </b></label>
                       <textarea type="text" class="form-control"  name="keterangan" cols="40" rows="5" value="{{ old('keterangan') }}"></textarea>
                     </div>
                 </div>  

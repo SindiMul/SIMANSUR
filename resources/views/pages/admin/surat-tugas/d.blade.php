@@ -4,6 +4,9 @@
     <title>Lembar Surat Tugas</title>
     <head>
     <style type="text/css">
+    /* @page {
+        size: landscape;
+    } */
         .container {
             font-family: "Times New Roman", Times, serif;
             margin: auto;
@@ -34,12 +37,12 @@
         <center>
             <table>
                 <tr>
-                    <td><img src="#" width="120" height="120" style="object-fit: cover;"></td>
+                    <td><img src="{{ url('backend/assets/img/brand/garut.png') }}" width="120" height="120" style="object-fit: cover;"></td>
                     <td>
                         <center>
                             <span style="font-size: 20px;"><b>PEMERINTAH KABUPATEN GARUT</b></span><br>
-                            <span style="font-size: 20px;"><b>DINAS TENAGA KERJA DAN TRANSMIGRASI</b></span><br>
-                            <span style="font-size: 14px;"><i>Jln.Sukarasa No.68 e-mail desasukarasa03@gmail.com-Pangatikan 44183 Garut No.Telp (0262) 448787</i></span>
+                            <span style="font-size: 20px;"><b>DINAS TENAGA KERJA DAN TRANSMIGRASI</b></span><br> <br>
+                            <span style="font-size: 14px;"><i>Jl. Guntur Cendana No. 1 Ds. Haur Panggung Kec. Tarogong Kidul Kab. Garut</i></span>
                         </center>
                     </td>
                 </tr>
@@ -50,9 +53,9 @@
                 </tr>
     </table>
     
-                <table style="width: 625px; margin-left: 175px;">
+                <table style="width: 625px; ">
                 <tr>
-                        <td style="text-align: center; font-size: 20px; font-weight: bold; text-decoration: underline;">
+                        <td style="text-align:center; font-size: 20px; font-weight: bold; text-decoration: underline;">
                             SURAT TUGAS</td>
                     </tr>
                     <tr>
@@ -63,10 +66,11 @@
                 <!-- form pengurus desa -->
                 <table style="width: 625px; margin-top: 6px;">
                     <tr>
-                        <td style="text-align: left; font-size: 16px; padding-left: 70px; ">
-                            Dasar
+                        <td style="text-align: left; font-size: 16px; padding-left: 70px; position: absolute; ">
+                            Dasar : 
                         </td>
-                        <td style=" width: 450px;  line-height: 1.6;">: {{ $disp->dasar }}</td>
+                     
+                        <td style=" width: 490px;  line-height: 1.2;" > {{ $disp->dasar }}</td>
                         
                     </tr>
                 </table>
@@ -77,7 +81,7 @@
                         </td>
                     </tr>
                 </table>
-                <table style="width: 625px; margin-left: 175px;">
+                <table style="width: 625px;">
                     <tr>
                         <td style="text-align: center; font-size: 18px; font-weight: bold; text-decoration: underline;">
                         MENUGASKAN</td>
@@ -89,20 +93,17 @@
                 <table style="width: 625px; margin-top: 5px;">
                     <tr>
                         <td style="text-align: left; font-size: 16px; padding-left: 70px;">
-                            Kepada
+                            Kepada :
                         </td>
-                        <td width="450px">: </td>
-                        
-                        
+                       
                     </tr>
                     </table>
-                <table style="margin-left: 270px;">
-                <?php $no = 1 ?> 
+                <table style="margin-left: 83px;">
+                <?php $no = 1. ?> 
                 @foreach ($disp->iii as $data_pegawai) 
                     <tr>
                         <td width="130px">{{ $no++ }} Nama </td>
-                            
-                            <td width="425px">: {{ $data_pegawai->ppp->nama_petugas }}</td> 
+                        <td width="425px">: {{ $data_pegawai->ppp->nama_petugas }}</td> 
                     </tr>
                    
                     <tr>
@@ -111,11 +112,11 @@
                     </tr>
                     <tr>
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;Pangkat / Gol</td>
-                        <td>: {{ $data_pegawai->ppp->pangkat }}</td>
+                        <td >: {{ $data_pegawai->ppp->pangkat }}</td>
                     </tr>
                     <tr>
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;Jabatan</td>
-                        <td>: {{ $data_pegawai->ppp->jabatan }}</td>
+                        <td style=" position: absolute;  width:400px">: {{ $data_pegawai->ppp->jabatan }}</td>
                     </tr>
                     <tr>
                         <td></br></td>
@@ -125,38 +126,34 @@
             
                    
                 </table>
-                <table style="width: 625px; margin-top: 5px;">
+                <table style="width: 620px; margin-top: 5px;">
                     <tr>
-                        <td style="text-align: left; font-size: 16px; padding-left: 70px;">
+                        <td style="text-align: left; font-size: 16px; padding-left: 86px; position: absolute;">
                             Untuk 
                         </td>
-                        <td width="450px margin-left: 155px;">: {{$disp->perihal}}</td>
+                        <td width="410px ;"> :{{$disp->perihal}}</td>
                         
                     </tr>
                 </table>
                 </br>
-                <table style="margin-left: 158px;">
+                <table style="width: 625px; padding-left:86 ;">
                     <tr>
-                        <td width="130px">Tanggal </td>
-                            
-                            <td width="425px">: {{  date ('d-m-Y', strtotime($disp->hari)) }}</td> 
+                        <td style="text-align: left; font-size: 16px; ">Hari/Tanggal</td>
+
+                            <td width="415px">: {{  $disp->hari }}</td> 
                     </tr>
-                   
                     <tr>
                         <td>Pukul</td>
                         <td>: {{ $disp->pukul }}</td>
                     </tr>
                     <tr>
                         <td>Tempat</td>
-                        <td>: {{ $disp->tempat }}</td>
+                        <td style=" position: absolute; width:400px">: {{ $disp->tempat }}</td>
                     </tr>
-                   
-            
-                   
                 </table>
-            </br>
-                <table style="margin-left: 158px;">
-                    <tr>
+                </br>
+                <table >
+                    <tr> <br>
                         <td >Demikian untuk dilaksanakan dengan pernuh rasa tanggung jawab. </td>
                    
                     </tr>
@@ -165,11 +162,24 @@
             <table style="margin-left: 400px; margin-top: 16px;">
                 <tr>
                     <td style="text-align: center; line-height: 1.6;">Garut, {{($tanggal)}}
-                        <br>
-                        <br>
-                        <br>
-                        <br>An. Kepala Desa
-                        Sukarasa<br><br><br><br><span style="text-decoration: underline; font-weight: bold; font-size: 16px"></span>
+                    @if($disp->ttt->jabatan =='Kepala Dinas')
+                    <br>{{$disp->ttt->jabatan}},
+                                @else
+                                <br> An. Kepala Dinas
+                                <br>{{$disp->ttt->jabatan}},
+                               
+                               @endif
+                               <br>
+                               <br>
+                               <br>
+                               <br>
+                               
+                         <b style=" text-decoration: underline; ">{{ $disp->ttt->nama_petugas }}</b> 
+                         <br>
+                        NIP. {{ $disp->ttt->nip }}
+                        </tr>
+                       
+                        <br><br><span style="text-decoration: underline; font-weight: bold; font-size: 16px"></span>
                     </td>
                 </tr>
             </table>

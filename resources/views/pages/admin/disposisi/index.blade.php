@@ -62,7 +62,7 @@
                           <th scope="col" class="sort" data-sort="date">Tgl surat</th>
                           <th scope="col" class="sort" data-sort="name">Perihal</th>
                           <th scope="col" class="sort" data-sort="time">File</th>
-                          <th scope="col" class="sort" data-sort="name">Keterangan</th>
+                          <th scope="col" class="sort" data-sort="name">Informasi / Intruksi</th>
                           <th scope="col"></th>
                         </tr>
                       </thead>
@@ -70,7 +70,7 @@
                         @forelse ($disp as $items)
                         <tr>
                           <th>{{ $smasuk-> nomor_surat }}</th>
-                          <th>{{ $smasuk-> tujuan_surat}}</th>
+                          <th>{{ $items-> tujuan_surat}}</th>
                           <th>{{ date ('d-m-Y', strtotime( $smasuk-> tanggal_surat)) }}</th>
                           <th>{{ $smasuk-> perihal }}</th>
                           <th>{{ $smasuk-> file }}</th>

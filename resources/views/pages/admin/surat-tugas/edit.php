@@ -15,7 +15,7 @@
           <div class="container">
           <div class="card mt-3">
             <div class="card-header">
-             <h2> TAMBAH DATA SURAT TUGAS</h2> 
+             <h2> EDIT DATA SURAT TUGAS</h2> 
             </div>
             @if ($errors->any())
             <div class="alert alert-danger">
@@ -28,7 +28,7 @@
         @endif
             <div class="card-body">
               <div class="table-responsive">
-              <form action="{{ route('surat-tugas.store') }}" method="POST" >
+              <form action="{{ route('surat-tugas.update') }}" method="POST" >
                 @csrf
                
                 
@@ -36,37 +36,37 @@
                 <div class="row">
                   <div class="col-sm-6">
                   <label for="nomor"> <b> Nomor Surat</b> </label>
-                  <input type="text" class="form-control"  name="nomor" placeholder="Nomor Surat" value=" {{ old('nomor') }}">
+                  <input type="text" class="form-control"  name="nomor" placeholder="Nomor Surat" value=" {{ $item->nomor}}">
                   </div>
                  
 
                   <div class="col-sm-6">
                   <label><b>Perihal</b></label>
-                    <input type="text" class="form-control"  name="perihal" placeholder="Asal Surat" value=" {{ old('perihal') }}">
+                    <input type="text" class="form-control"  name="perihal" placeholder="Asal Surat" value=" {{ $item->perihal }}">
                   </div>
                   </div>
                   
                   <div class="row mt-2">
                   <div class="col-sm-6">
                   <label> <b>Dasar</b> </label>
-                  <textarea class="form-control"  name="dasar" cols="40" rows="5" placeholder="dasar" value=" {{ old('dasar') }}"></textarea>
+                  <textarea class="form-control"  name="dasar" cols="40" rows="5" placeholder="dasar" value=" {{ $item->dasar }}"></textarea>
                   </div>
                 
                   <div class="col-sm-6">
                   <label><b>Hari</b></label>
-                    <input type="text" class="form-control"  name="hari" placeholder="Asal Surat" value=" {{ old('hari') }}">
+                    <input type="DATE" class="form-control"  name="hari" placeholder="Asal Surat" value=" {{ $item->'hari' }}">
                   </div>
                   </div>
 
                   <div class="row mt-2">
                   <div class="col-sm-6 ">                  
                   <label><b>Jam</b></label>
-                    <input type="text" class="form-control"  name="pukul" placeholder="Asal Surat" value=" {{ old('pukul') }}">
+                    <input type="text" class="form-control"  name="pukul" placeholder="Asal Surat" value=" {{ $item->pukul }}">
                   </div>
                
                   <div class="col-sm-6">
                   <label><b>Tempat</b></label>
-                    <input type="text" class="form-control"  name="tempat" placeholder="Asal Surat" value=" {{ old('tempat') }}">
+                    <input type="text" class="form-control"  name="tempat" placeholder="Asal Surat" value=" {{ $item->tempat }}">
                   </div>
                 </div>
                   <div class="form-group">

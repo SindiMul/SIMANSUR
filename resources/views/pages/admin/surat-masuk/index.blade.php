@@ -75,24 +75,20 @@
                           <th>{{ date ('d-m-Y', strtotime($item-> tanggal_surat )) }}</th>
                           <th style= "width:200px; word-wrap:break-word;">{{ $item-> perihal }}</th>
                           <th>{{ $item-> file }}</th>
-                          @if($user->role =='Admin')
+                        
                           <th>
-                              <a href="{{ route('surat-masuk.edit', $item->id) }}" class="btn btn-info">
+                              <a href="{{ route('surat-masuk.edit', $item->id) }}" class="btn btn-info btn-sm">
                                   <i class="fa fa-pencil-alt"></i>
                               </a>
-                              <a href="{{ route('disposisi.index', $item->id) }}" class="btn btn-success">
+                              <a href="{{ route('disposisi.index', $item->id) }}" class="btn btn-success  btn-sm">
                                 <i class="fa fa-sticky-note"></i>
                             </a>
                               <form action="{{ route('surat-masuk.destroy', $item->id) }}" method="post" class="d-inline">
                                   @csrf
                                   @method('delete')
-                                  <button class="btn btn-danger">
+                                  <button class="btn btn-danger  btn-sm">
                                       <i class="fa fa-trash"></i>
-                                  </button>
-                                @else
-                               <th></th>
-                               @endif
-                         
+                                  </button> 
                               </form>
                           </th>
                         </tr>

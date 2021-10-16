@@ -72,17 +72,17 @@
                           <th>{{ $item-> tujuan_surat}}</th>
                           <th>{{  date ('d-m-Y', strtotime( $item-> tanggal_sura )) }}</th>
                           <th>{{ $item-> perihal }}</th>
-                          <th><img src="{{ Storage::url($item->file) }}" alt="" style="width: 200px" class="img-thumbnail"></th>
+                          <th>{{ $item-> file }}</th>
                           <th>
 
                             
-                              <a href="{{ route('surat-keluar.edit', $item->id) }}" class="btn btn-info">
+                              <a href="{{ route('surat-keluar.edit', $item->id) }}" class="btn btn-info  btn-sm">
                                   <i class="fa fa-pencil-alt"></i>
                               </a>
                               <form action="{{ route('surat-keluar.destroy', $item->id) }}" method="post" class="d-inline">
                                   @csrf
                                   @method('delete')
-                                  <button class="btn btn-danger">
+                                  <button class="btn btn-danger  btn-sm">
                                       <i class="fa fa-trash"></i>
                                   </button>
                               </form>

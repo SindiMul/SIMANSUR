@@ -28,7 +28,7 @@ class SuratTugasRequest extends FormRequest
             'nomor' => 'required|max:255',
             'perihal' => 'required|max:255',
             'tempat' => 'required|max:255',
-            'hari' => 'required',
+            'hari' => 'required |max:255',
             'pukul' => 'required|max:255',
             'dasar' => 'required |max:255',
         ];

@@ -104,7 +104,12 @@ class DisposisiController extends Controller
         
         $smasuk = $suratmasuk->findorfail($suratmasuk->id);
         $disp = Disposisi::findorfail($id);
-        $pdf = PDF::loadview('pages.admin.disposisi.download', compact('disp','smasuk'));
-        return $pdf->stream();
+        return view('pages.admin.disposisi.download',[
+            'disp' => $disp,
+            'smasuk'=>$smasuk,
+            
+        ]);
+        // $pdf = PDF::loadview('pages.admin.disposisi.download', compact('disp','smasuk'));
+        // return $pdf->stream();
     }
 }

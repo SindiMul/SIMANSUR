@@ -16,7 +16,7 @@ class DataPegawaiController extends Controller
      */
     public function index()
     {
-        $items = DataPegawai::all();
+        $items = DataPegawai::paginate(5);
 
         return view('pages.admin.data-pegawai.index', [
             'items' => $items

@@ -25,7 +25,8 @@ class PrintController extends Controller
         return view('pages.admin.surat-tugas.d',[
             'disp' => $disp,
             'tanggal'=>$tanggal,
-            'item'=>$item
+            'item'=>$item 
+            
         ]);
         // $pdf = PDF::loadview('pages.admin.surat-tugas.d', compact('disp', 'item','tanggal'));
         // return $pdf->stream();

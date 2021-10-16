@@ -44,7 +44,7 @@
 
                 <div class="row mt-2">
                   <div class="col-sm-6">
-                  <label><b> Pangkat </b></label>
+                  <label><b> Pangkat/Gol </b></label>
                     <input type="text" class="form-control"  name="pangkat" placeholder="Pangakat" value=" {{ old('pangkat') }}">
                   </div>
                   <div class="col-sm-6 ">

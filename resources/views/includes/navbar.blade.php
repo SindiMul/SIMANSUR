@@ -3,7 +3,7 @@
   <div class="container-fluid">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Menu Pencarian -->
-          <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+          <!-- <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
               <div class="form-group mb-0">
                   <div class="input-group input-group-alternative input-group-merge">
                       <div class="input-group-prepend">
@@ -15,7 +15,7 @@
               <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
                   <span aria-hidden="true">×</span>
               </button>
-          </form>
+          </form> -->
           <!-- End Menu Pencarian -->
 
           <!-- Nav Icon -->
@@ -43,7 +43,7 @@
                   <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <div class="media align-items-center">
                           <span class="avatar avatar-sm rounded-circle">
-                              <img alt="Image" placeholder=" " style="border-radius: 50%; !important" src="#"></span>
+                              <img alt="Image" placeholder=" " style="border-radius: 50%; !important" src="{{ url('backend/assets/img/brand/garut.png') }}"></span>
                           <div class=" media-body ml-2 d-none d-lg-block">
                               <span class="mb-0 text-sm  font-weight-bold"> {{ Auth::user()->name }} </span>
                           </div>
@@ -54,10 +54,26 @@
                           <h6 class="text-overflow m-0">Selamat Datang !</h6>
                       </div>
                       <div class="dropdown-divider"></div>
-                      <a href="login.php" class="dropdown-item">
-                          <i class="ni ni-user-run"></i>
-                          <span>Logout</span>
-                      </a>
+                      
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                       <i class="ni ni-user-run"></i> {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                            
+
+
+                      <!-- <form action="{{  url('logout') }}" method="POST"> -->
+                <!-- @csrf 
+                
+                <button  type="submit"><i class="ni ni-user-run"></i>Logout</button> -->
+            
+                      
+                      <!-- </form> -->
                   </div>
               </li>
           </ul>

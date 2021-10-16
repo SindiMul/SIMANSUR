@@ -58,7 +58,7 @@
                         <tr>
                         <th scope="col" class="sort" data-sort="name">NIP</th>
                           <th scope="col" class="sort" data-sort="name">Nama Petugas</th>
-                          <th scope="col" class="sort" data-sort="name">Pangkat</th>
+                          <th scope="col" class="sort" data-sort="name">Pangkat/Gol</th>
                           <th scope="col" class="sort" data-sort="name">Jabatan</th>
                           <th scope="col" class="sort" data-sort="name">Action</th>
                           <th scope="col"></th>
@@ -70,16 +70,16 @@
                         <th>{{ $item-> nip }}</th>
                           <th>{{ $item-> nama_petugas }}</th>
                           <th>{{ $item-> pangkat }}</th>
-                          <th>{{ $item-> jabatan }}</th>
+                          <th>{{ Str::words ( $item-> jabatan,3) }}</th>
                           
                           <th>
-                              <a href="{{ route('data-pegawai.edit', $item->id) }}" class="btn btn-info">
+                              <a href="{{ route('data-pegawai.edit', $item->id) }}" class="btn btn-info  btn-sm">
                                   <i class="fa fa-pencil-alt"></i>
                               </a>
-                              <form action="{{ route('data-pegawai.destroy', $item->id) }}" method="post" class="d-inline">
+                              <form action="{{ route('data-pegawai.destroy', $item->id) }}" method="post" class="d-inline  btn-sm">
                                   @csrf
                                   @method('delete')
-                                  <button class="btn btn-danger">
+                                  <button class="btn btn-danger  btn-sm">
                                       <i class="fa fa-trash"></i>
                                   </button>
                               </form>
@@ -98,5 +98,5 @@
         </div>
       </div>
     </div>
-    
+    {{ $items-> links() }}
 @endsection

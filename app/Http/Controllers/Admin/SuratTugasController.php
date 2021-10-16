@@ -101,6 +101,7 @@ class SuratTugasController extends Controller
     public function edit($id)
     {
         $item = DataPegawai::findOrFail($id);
+        $item = SuratTugask::findOrFail($id);
         $data_pegawai = DataPegawai::all();
 
         return view('pages.admin.surat-tugas.edit', [

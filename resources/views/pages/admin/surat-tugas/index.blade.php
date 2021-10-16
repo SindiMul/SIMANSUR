@@ -53,16 +53,15 @@
       
                   <!-- My Files -->
                   <div class="table-responsive">
-                    <table class="table align-items-center table-flush" >
+                    <table class="table align-items-center table-flush " >
                       <thead class="thead-light">
                         <tr>
-                          <th scope="col" class="sort" data-sort="name">nomor</th>
-                          <th scope="col" class="sort" data-sort="name" >dasar</th>
-                          <th scope="col" class="sort" data-sort="date">hari</th>
-                          <th scope="col" class="sort" data-sort="name">pukul</th>
-                          <th scope="col" class="sort" data-sort="name">tempat</th>
-                         <th scope="col" class="sort" data-sort="name">ttd</th>
-                          <th scope="col" class="sort" data-sort="name">Action</th>
+                          <th scope="col" class="sort" data-sort="name"><center>nomor</center></th>
+                          <!-- <th scope="col" class="sort" data-sort="name" >dasar</th> -->
+                          <th scope="col" class="sort" data-sort="name"><center>hari</center></th>
+                          <th scope="col" class="sort" data-sort="name"><center>pukul</center></th>
+                          <th scope="col" class="sort" data-sort="name"><center>tempat</center></th>
+                          <th scope="col" class="sort" data-sort="name"><center>Action</center></th>
                           <th scope="col"></th>
                         </tr>
                       </thead>
@@ -70,27 +69,29 @@
                         @forelse ($items as $item)
                         <tr>
                           <th>{{ $item-> nomor }}</th>
-                          <th style= "width:200px; word-wrap:break-word;">{{ $item-> dasar}}</th>
-                          <th>{{  date ('d-m-Y', strtotime( $item-> hari )) }}</th>
+                          <!-- <th >{{Str::words( $item-> dasar,4)}}</th> -->
+                          <th>{{ $item-> hari  }}</th>
                           <th>{{ $item-> pukul }}</th>
-                          <th>{{ $item-> tempat }}</th>
-                          <th>{{ $item-> tempat }}</th>
-                          <th>{{ $item->ttt->nama_petugas }}</th>
-                          </th>
-                          <th><a class="btn btn-primary btn-sm my-1 mr-sm-1"
-                                        href="{{ route('surat.download', [$item->id]) }}"
-                                        target="_blank" role="button"><i class="fas fa-print"></i> Cetak</a></th>
-                        
-                                <th>
+                          <th>{{ Str::words ($item-> tempat,4 ) }}</th>
+                          </th>               
+                            <th>
+                                <a href="{{ route('surat-tugas.edit', $item->id) }}" class="btn btn-info btn-sm">
+                                  <i class="fa fa-pencil-alt"></i>
+                                </a>
+                              
                                 <form action="{{ route('surat-tugas.destroy', $item->id) }}" method="post" class="d-inline">
                                   @csrf
                                   @method('delete')
-                                  <button class="btn btn-danger">
+                                  <button class="btn btn-danger btn-sm">
                                       <i class="fa fa-trash"></i>
                                   </button>
-                              </form>
-                                </th>
-                              </tr>
+                                 </form>
+                                
+                              <a class="btn btn-primary btn-sm my-1 mr-sm-1"
+                                        href="{{ route('surat.download', [$item->id]) }}"
+                                        target="_blank" role="button"><i class="fas fa-print"></i> Cetak</a>
+                              </th>
+                          </tr>
                               
           
               @empty

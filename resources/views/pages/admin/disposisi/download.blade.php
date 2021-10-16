@@ -46,7 +46,7 @@
         </tr> 
 
          </table>
-
+        <br>
       
         <table width="100%">
         <tr>
@@ -55,6 +55,7 @@
                  <td> &nbsp; {{ $smasuk->asal_surat }}
             </td>
         </tr>
+        
         <tr>
             <td width="200">Perihal</td>
             <td width="1">:</td>
@@ -73,33 +74,27 @@
         </table>
         <br>
         <table width="100%" border="1" style="border-collapse: collapse;">
-            <tr>
-                <td style="padding: 100px;" valign="top">
-                <b>Keterangan:</b>
-                <p>{{ $disp->keterangan }}</p>                     
+            <tr style="height:200px";>
+            <td style="font-size: 16px; padding-left:50px; padding-top:10px; colspan:2; ">
+                <b>Intruksi/Informasi @ :</b> 
+                <p style="padding-left:100px;">{{ $disp->keterangan }}</p>  <br><br>   <br><br>  
+                <div style="height: 40px;"></div>
+                                    <div style="height: 25px;"></div>            
                 </td>
-                <td style="padding: 100px;" valign="top">
-                <b>Diteruskan Kepada</b>
-                <p>{{ $disp->tujuan_surat }}</p>
+                <td style="font-size: 16px; padding-left:50px; padding-top:10px; colspan:2; ">
+                <b>DiTeruskan Kepada :</b> 
+                <p style="padding-left:100px;">{{ $disp->tujuan_surat }}</p>  <br><br>   <br><br>  
+                <div style="height: 40px;"></div>
+                                    <div style="height: 25px;"></div>            
                 </td>
+               
+               
             </tr>
         </table>
-                            <!-- <br> -->
-                            <!-- <table width="100%">
-                                <tr>
-                                    <td width="50%"></td>
-                                    <td  width="50%" align="center">
-                                        <p>Gorontalo, ................................................................</p>
-                                        <p><b>Kepala</b></p>
-
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <u><b>.................................................................</b></u>
-                                    </td>
-                                </tr>
-                            </table> -->
+                           
+                            <script type="text/javascript">
+  window.print()
+  </script>
 </body>
 
 </html>
