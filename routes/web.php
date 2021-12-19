@@ -41,6 +41,7 @@ Route::prefix('admin')
         Route::resource('data-pegawai', 'DataPegawaiController');
         Route::resource('data-petugas', 'DataPetugasController');
         Route::resource('surat-tugas', 'SuratTugasController');
+        Route::resource('sk', 'SuratKeputusanController');
        
     });
 

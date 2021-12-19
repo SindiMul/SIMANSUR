@@ -74,7 +74,7 @@
                           <th>{{ date ('d-m-Y', strtotime($item-> tanggal_diterima )) }}</th>
                           <th>{{ date ('d-m-Y', strtotime($item-> tanggal_surat )) }}</th>
                           <th style= "width:200px; word-wrap:break-word;">{{ $item-> perihal }}</th>
-                          <th>{{ $item-> file }}</th>
+                          <th><a href="{{ route('surat-masuk.show', $item->id) }}"> {{ $item-> file }} </a></th>
                         
                           <th>
                               <a href="{{ route('surat-masuk.edit', $item->id) }}" class="btn btn-info btn-sm">

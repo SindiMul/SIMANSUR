@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\SuratKeluarRequest;
-use App\SuratKeluar;
+use App\Http\Requests\Admin\SuratKeputusanRequest;
+use App\SuratKeputusan;
 use Illuminate\Http\Request;
 
 
-class SuratKeluarController extends Controller
+class SuratKeputusanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +17,10 @@ class SuratKeluarController extends Controller
      */
     public function index()
     {
-        $surat_keluar = SuratKeluar::all();
+        $surat_keputusan = SuratKeputusan::all();
 
-        return view('pages.admin.surat-keluar.index', [
-            'surat_keluar' => $surat_keluar
+        return view('pages.admin.sk.index', [
+            'surat_keputusan' => $surat_keputusan
         ]);
     }
 
@@ -33,7 +33,7 @@ class SuratKeluarController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.surat-keluar.create');
+        return view('pages.admin.sk.create');
     }
 
     /**
@@ -42,16 +42,18 @@ class SuratKeluarController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SuratKeluarRequest $request)
+    public function store(SuratKeputusanRequest $request)
     {
         $data = $request->all();
         $file = $data['file']->getClientOriginalName();
-        $data['file']=$request->file->storeAs( 'public/assets/surat keluar', $file
+        $data['file'] = $request->file->storeAs(
+            'public/assets/surat keputusan',
+            $file
         );
-    //    $data['file']=$file;
+        // $data['file'] = $file;
 
-        SuratKeluar::create($data);
-        return redirect()->route('surat-keluar.index');
+        SuratKeputusan::create($data);
+        return redirect()->route('sk.index');
     }
 
     /**
@@ -62,8 +64,8 @@ class SuratKeluarController extends Controller
      */
     public function show($id)
     {
-         $item = SuratKeluar::findOrFail($id);
-        return view('pages.admin.surat-keluar.tampil', [
+         $item = SuratKeputusan::findOrFail($id);
+        return view('pages.admin.sk.tampil', [
             'item' => $item
         ]);
     }
@@ -76,8 +78,8 @@ class SuratKeluarController extends Controller
      */
     public function edit($id)
     {
-        $item = SuratKeluar::findOrFail($id);
-        return view('pages.admin.surat-keluar.edit', [
+        $item = SuratKeputusan::findOrFail($id);
+        return view('pages.admin.sk.edit', [
             'item' => $item
         ]);
     }
@@ -92,17 +94,17 @@ class SuratKeluarController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        $item = SuratKeluar::findOrFail($id);
-        $file = $data['file']->getClientOriginalName();
+        $item = SuratKeputusan::findOrFail($id);
+        $file =$data['file']->getClientOriginalName();
         $data['file'] = $request->file->storeAs(
-            'public/assets/surat keluar',
+            'public/assets/surat keputusan',
             $file
         );
         // $data['file'] = $file;
 
         $item->update($data);
 
-        return redirect()->route('surat-keluar.index');
+        return redirect()->route('sk.index');
     }
 
     /**
@@ -113,9 +115,9 @@ class SuratKeluarController extends Controller
      */
     public function destroy($id)
     {
-        $item = SuratKeluar::findorFail($id);
+        $item = SuratKeputusan::findorFail($id);
         $item->delete();
 
-        return redirect()->route('surat-keluar.index');
+        return redirect()->route('sk.index');
     }
 }

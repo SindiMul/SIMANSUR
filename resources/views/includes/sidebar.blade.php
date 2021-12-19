@@ -41,8 +41,14 @@
           </a>
         </li> -->
         <li class="nav-item">
+          <a class="nav-link" href="{{route ('sk.index')}}">
+            <i class="fas fa-file-invoice text-primary"></i>
+            <span class="nav-link-text">Surat Keputusan</span>
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="{{route ('surat-tugas.index')}}">
-            <i class="ni ni-key-25 text-info"></i>
+           <i class="fas fa-copy text-primary"></i> 
             <span class="nav-link-text">Surat Tugas</span>
           </a>
         </li>
@@ -55,12 +61,13 @@
       
       </ul>
       
-      <!-- <div class="navbar-inner">
-    <!-- Collapse -->
-    <!-- <div class="collapse navbar-collapse" id="sidenav-collapse-main">
-      <!-- Nav items -->
-      <!-- <ul class="navbar-nav"> -->
-        
+{{--       
+     <div class="navbar-inner"
+     Collapse
+     <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+       Nav items 
+       <ul class="navbar-nav"> -->
+         --}}
         
         
       <!-- Navigation -->

@@ -75,10 +75,7 @@
                           <th>{{ Str::words ($item-> tempat,4 ) }}</th>
                           </th>               
                             <th>
-                                <a href="{{ route('surat-tugas.edit', $item->id) }}" class="btn btn-info btn-sm">
-                                  <i class="fa fa-pencil-alt"></i>
-                                </a>
-                              
+                          
                                 <form action="{{ route('surat-tugas.destroy', $item->id) }}" method="post" class="d-inline">
                                   @csrf
                                   @method('delete')

@@ -31,13 +31,13 @@
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-envelope-open text-primary"></i></a></li>
-                  <li class="breadcrumb-item"><a href="#">Surat Keluar</a></li>
+                  <li class="breadcrumb-item"><a href="#">Surat Keputusan</a></li>
                   
                 </ol>
               </nav>
             </div>
             <div class="col-lg-5 col-5 text-right">
-              <a href="{{route ('surat-keluar.create')}}" class="btn btn-sm btn-neutral">Tambah Data
+              <a href="{{route ('sk.create')}}" class="btn btn-sm btn-neutral">Tambah Data
                  </a>
             </div>
           </div>
@@ -48,7 +48,7 @@
                 <div class="card">
                   <!-- Card header -->
                   <div class="card-header border-0">
-                    <h3 class="mb-0">Surat Keluar</h3>
+                    <h3 class="mb-0">Surat Keputusan</h3>
                   </div>
       
                   <!-- My Files -->
@@ -59,27 +59,27 @@
                           <th scope="col" class="sort" data-sort="name">Nomor Surat</th>
                           <th scope="col" class="sort" data-sort="name">Tujuan Surat</th>
                           <th scope="col" class="sort" data-sort="date">Tgl surat</th>
-                          <th scope="col" class="sort" data-sort="name">Perihal</th>
+                          <th scope="col" class="sort" data-sort="name">Keterangan</th>
                           <th scope="col" class="sort" data-sort="time">File</th>
                           <th scope="col" class="sort" data-sort="name">Action</th>
                           <th scope="col"></th>
                         </tr>
                       </thead>
                       <tbody>
-                        @forelse ($surat_keluar as $item)
+                        @forelse ($surat_keputusan as $item)
                         <tr>
                           <th>{{ $item-> nomor_surat }}</th>
                           <th>{{ $item-> tujuan_surat}}</th>
                           <th>{{  date ('d-m-Y', strtotime( $item-> tanggal_surat )) }}</th>
-                          <th>{{ $item-> perihal }}</th>
-                          <th><a href="{{ route('surat-keluar.show', $item->id) }}">{{ $item-> file }}</a></th>
+                          <th>{{ $item-> keterangan }}</th>
+                          <th>  <a href="{{ route('sk.show', $item->id) }}"> {{ $item-> file }}</a></th>
                           <th>
 
                             
-                              <a href="{{ route('surat-keluar.edit', $item->id) }}" class="btn btn-info  btn-sm">
+                              <a href="{{ route('sk.edit', $item->id) }}" class="btn btn-info  btn-sm">
                                   <i class="fa fa-pencil-alt"></i>
                               </a>
-                              <form action="{{ route('surat-keluar.destroy', $item->id) }}" method="post" class="d-inline">
+                              <form action="{{ route('sk.destroy', $item->id) }}" method="post" class="d-inline">
                                   @csrf
                                   @method('delete')
                                   <button class="btn btn-danger  btn-sm">

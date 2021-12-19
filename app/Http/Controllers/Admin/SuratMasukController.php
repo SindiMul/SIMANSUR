@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\SuratMasukRequest;
@@ -20,11 +21,11 @@ class SuratMasukController extends Controller
     public function index()
     {
         $items = SuratMasuk::all();
-        $user= Auth::user();
+        $user = Auth::user();
 
         return view('pages.admin.surat-masuk.index', [
             'items' => $items,
-            'user' =>$user
+            'user' => $user
         ]);
     }
 
@@ -49,9 +50,11 @@ class SuratMasukController extends Controller
     {
         $data = $request->all();
         $file = $data['file']->getClientOriginalName();
-        $data['file']=$request->file->storeAs( 'public/assets/surat masuk', $file
+        $data['file'] = $request->file->storeAs(
+            'public/assets/surat masuk',
+            $file
         );
-       $data['file']=$file;
+        // $data['file'] = $file;
 
         SuratMasuk::create($data);
         return redirect()->route('surat-masuk.index');
@@ -65,6 +68,10 @@ class SuratMasukController extends Controller
      */
     public function show($id)
     {
+        $item = SuratMasuk::findOrFail($id);
+        return view('pages.admin.surat-masuk.tampil', [
+            'item' => $item
+        ]);
     }
 
     /**
@@ -93,9 +100,14 @@ class SuratMasukController extends Controller
     {
         $data = $request->all();
         $item = SuratMasuk::findOrFail($id);
+        $file = $data['file']->getClientOriginalName();
+        $data['file'] = $request->file->storeAs(
+            'public/assets/surat masuk',
+            $file
+        );
+        // $data['file'] = $file;
 
         $item->update($data);
-
         return redirect()->route('surat-masuk.index');
     }
 
